@@ -30,6 +30,8 @@ in
     unzip
     zellij
     kdePackages.dolphin
+    flatpak
+    discord
   ];
 
   home.username = "jay";

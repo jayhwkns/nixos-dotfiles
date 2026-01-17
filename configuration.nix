@@ -29,7 +29,17 @@
 
   programs.niri.enable = true;
 
-  services.displayManager.ly.enable = true;
+  services.displayManager.ly = {
+    enable = true;
+    settings = {
+      # leave the colors alone because the console doesn't support them all.
+      animate = true;
+      animation = "colormix";
+      allow_empty_password = false;
+      vi_mode = true;
+      vi_default_mode = "insert";
+    };
+  };
 
   hardware.graphics.enable = true;
   services.xserver.videoDrivers = [ "nvidia" ];
@@ -47,6 +57,7 @@
   };
 
   services.accounts-daemon.enable = true;
+  services.flatpak.enable = true;
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
@@ -78,7 +89,15 @@
     gdk-pixbuf
     pango
     cairo
+    xwayland-satellite
   ];
+
+  # needed for electron and chromium apps.
+  environment.sessionVariables = {
+    NIXOS_OZONE_WL = "1";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    DISPLAY = "0";
+  };
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
@@ -89,12 +108,15 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [
+    57621 # spotify sync
+  ];
+  networking.firewall.allowedUDPPorts = [
+    5353 # spotify sync
+  ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
   system.stateVersion = "25.11"; 
-
 }
 
