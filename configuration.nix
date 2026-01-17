@@ -57,6 +57,7 @@
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
+    helix
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     wget
     git
@@ -65,6 +66,8 @@
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
+    victor-mono
+    nerd-fonts.victor-mono
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

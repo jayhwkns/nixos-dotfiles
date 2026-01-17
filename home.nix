@@ -7,6 +7,7 @@ let
     niri = "niri";
     alacritty = "alacritty";
     helix = "helix";
+    anyrun = "anyrun";
   };
 in
 {
@@ -31,6 +32,7 @@ in
     dgop.package = dgop.packages.${pkgs.system}.default;
   };
 
+  # Create symlinks to app config directories
   xdg.configFile = builtins.mapAttrs (name: subpath: {
       source = create_symlink "${dotfiles}/${subpath}";
       recursive = true;
@@ -49,6 +51,7 @@ in
     wl-clipboard
     matugen
     anyrun
+    gnome-font-viewer
   ];
 
 }
