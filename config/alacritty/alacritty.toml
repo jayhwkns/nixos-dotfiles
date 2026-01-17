@@ -1,0 +1,15 @@
+general.import = [
+    "./kanagawa-dragon.toml"
+]
+
+[window]
+opacity = 1.0
+padding = {x = 10, y = 10}
+decorations = "None"
+
+#[colors.primary]
+#background = '#181818'
+
+[font]
+normal = { family = "VictorMono NF", style = "Regular" } 
+size = 14

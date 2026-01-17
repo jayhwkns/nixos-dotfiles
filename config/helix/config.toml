@@ -1,0 +1,7 @@
+theme = "kanagawa-dragon"
+
+[editor]
+line-number = "relative"
+
+[editor.inline-diagnostics]
+cursor-line = "hint"

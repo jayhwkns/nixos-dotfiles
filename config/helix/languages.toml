@@ -1,0 +1,20 @@
+[[language]]
+name = "rust"
+scope = "source.rs"
+language-servers = [ "rust-analyzer" ]
+
+[language-server.rust-analyzer]
+command = "rust-analyzer"
+
+[[language]]
+name = "c"
+scope = "source.c"
+injection-regex = "c"
+file-types = ["c", "h"] 
+comment-token = "//"
+block-comment-tokens = { start = "/*", end = "*/" }
+language-servers = [ "clangd" ]
+indent = { tab-width = 4, unit = "  " }
+
+[language-server.clangd]
+command = "clangd"
