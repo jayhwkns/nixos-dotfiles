@@ -8,9 +8,32 @@ let
     alacritty = "alacritty";
     helix = "helix";
     anyrun = "anyrun";
+    dms = "dms";
+    DankMaterialShell = "DankMaterialShell";
   };
 in
 {
+  home.packages = with pkgs; [
+    helix
+    nil
+    ripgrep
+    nixpkgs-fmt
+    nodejs
+    gcc
+    cava
+    cliphist
+    wl-clipboard
+    matugen
+    anyrun
+    gnome-font-viewer
+    accountsservice
+    zip
+    unzip
+    zellij
+    spotify
+    kdePackages.dolphin
+  ];
+
   home.username = "jay";
   home.homeDirectory = "/home/jay";
   home.stateVersion = "25.11";
@@ -25,11 +48,23 @@ in
       email = "hawkinsjr27@gmail.com";
     };
   };
+
+  gtk = {
+    enable = true;
+    theme.name = "adw-gtk3";
+    cursorTheme.name = "Bibata-Modern-Ice";
+    iconTheme.name = "GruvboxPlus";
+  };
   
-  programs.bash.enable = true;
+  programs.fish.enable = true;
   programs.dank-material-shell = {
     enable = true;
     dgop.package = dgop.packages.${pkgs.system}.default;
+
+    systemd = {
+      enable = true;
+      restartIfChanged = true;
+    };
   };
 
   # Create symlinks to app config directories
@@ -38,20 +73,4 @@ in
       recursive = true;
     })
     configs;
-
-  home.packages = with pkgs; [
-    helix
-    nil
-    ripgrep
-    nixpkgs-fmt
-    nodejs
-    gcc
-    cava
-    cliphist
-    wl-clipboard
-    matugen
-    anyrun
-    gnome-font-viewer
-  ];
-
 }
