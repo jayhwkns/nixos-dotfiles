@@ -73,6 +73,11 @@
     wget
     git
     alacritty
+    cargo
+    pkg-config
+    gdk-pixbuf
+    pango
+    cairo
   ];
 
   fonts.packages = with pkgs; [

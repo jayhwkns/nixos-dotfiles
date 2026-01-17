@@ -7,9 +7,9 @@ let
     niri = "niri";
     alacritty = "alacritty";
     helix = "helix";
-    anyrun = "anyrun";
     dms = "dms";
     DankMaterialShell = "DankMaterialShell";
+    zellij = "zellij";
   };
 in
 {
@@ -24,13 +24,11 @@ in
     cliphist
     wl-clipboard
     matugen
-    anyrun
     gnome-font-viewer
     accountsservice
     zip
     unzip
     zellij
-    spotify
     kdePackages.dolphin
   ];
 
@@ -51,8 +49,6 @@ in
 
   gtk = {
     enable = true;
-    theme.name = "adw-gtk3";
-    cursorTheme.name = "Bibata-Modern-Ice";
     iconTheme.name = "GruvboxPlus";
   };
   
@@ -65,6 +61,99 @@ in
       enable = true;
       restartIfChanged = true;
     };
+  };
+
+  programs.anyrun = {
+    enable = true;
+    config = {
+      x = { fraction = 0.5; };
+      y = { fraction = 0.3; };
+      width = { fraction = 0.3; };
+      hideIcons = false;
+      ignoreExclusiveZones = false;
+      layer = "overlay";
+      hidePluginInfo = false;
+      closeOnClick = false;
+      showResultsImmediately = false;
+      maxEntries = null;
+
+      plugins = [
+        "${pkgs.anyrun}/lib/libapplications.so"
+        "${pkgs.anyrun}/lib/libsymbols.so"
+      ];
+    };
+    extraCss = /*css */ ''
+      @define-color accent #8ea4a2;
+      @define-color bg-color #181616;
+      @define-color fg-color #c5c9c5;
+      @define-color desc-color #a6a69c;
+
+      window {
+        background: transparent;
+      }
+
+      box.main {
+        padding: 5px;
+        margin: 10px;
+        border-radius: 0;
+        border: 2px solid @accent;
+        background-color: rgba(24, 22, 22, 0.85);
+        box-shadow: 0 0 5px black;
+      }
+
+
+      text {
+        min-height: 30px;
+        padding: 5px;
+        border-radius: 0;
+        color: @fg-color;
+        font-family: "VictorMono NF";
+      }
+
+      .matches {
+        background-color: rgba(0, 0, 0, 0);
+        border-radius: 10px;
+      }
+
+      box, list, label {
+        font-family: "VictorMono NF";
+      }
+
+      box.plugin:first-child {
+        margin-top: 5px;
+      }
+
+      box.plugin.info {
+        min-width: 200px;
+      }
+
+      list.plugin {
+        background-color: rgba(0, 0, 0, 0);
+      }
+
+      label.match {
+        color: @fg-color;
+      }
+
+      label.match.description {
+        font-size: 10px;
+        color: @desc-color;
+      }
+
+      label.plugin.info {
+        font-size: 14px;
+        color: @fg-color;
+      }
+
+      .match {
+        background: transparent;
+      }
+
+      .match:selected {
+        border-left: 4px solid @accent;
+        background: transparent;
+      }
+    '';
   };
 
   # Create symlinks to app config directories

@@ -14,9 +14,12 @@
  
         dgop.url = "github:AvengeMedia/dgop";
         dgop.inputs.nixpkgs.follows = "nixpkgs";        
+
+        # Use this version so we can use daemon
+        anyrun.url = "github:anyrun-org/anyrun/v25.12.0"; 
     };
 
-    outputs = { self, nixpkgs, dms, dgop, home-manager, ... }:
+    outputs = { self, nixpkgs, dms, dgop, anyrun, home-manager, ... }:
     let
         system = "x86_64-linux";
     in {
@@ -42,6 +45,18 @@
                 };
                 }
                 dms.nixosModules.dank-material-shell
+            ];
+        };
+        homeConfigurations.user = home-manager.lib.homeManagerConfiguration {
+            modules = [         
+                ({ modulesPath, ...}: {
+                    # disable anyrun's home-manager module to avoid redefinitions
+                    disabledModules = ["${modulesPath}/programs/anyrun.nix"];
+                })
+                anyrun.homeManagerModules.default
+                {
+                    programs.anyrun.enable = true;
+                }
             ];
         };
     };
