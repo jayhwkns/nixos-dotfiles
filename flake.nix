@@ -34,6 +34,7 @@
                     useUserPackages = true;
                     extraSpecialArgs = {
                         inherit dgop;
+                        inherit anyrun;
                     };
                     users.jay = {
                         imports = [

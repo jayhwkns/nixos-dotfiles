@@ -1,0 +1,3 @@
+binds {
+    XF86AudioPlay hotkey-overlay-title="Media: Play/Pause" { spawn "dms" "ipc" "call" "mpris" "playPause"; }
+}

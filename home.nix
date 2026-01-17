@@ -1,4 +1,4 @@
-{ config, pkgs, dgop, ... }:
+{ config, pkgs, dgop, anyrun, ... }:
 
 let
   dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
@@ -11,80 +11,7 @@ let
     DankMaterialShell = "DankMaterialShell";
     zellij = "zellij";
   };
-in
-{
-  home.packages = with pkgs; [
-    helix
-    nil
-    ripgrep
-    nixpkgs-fmt
-    nodejs
-    gcc
-    cava
-    cliphist
-    wl-clipboard
-    matugen
-    gnome-font-viewer
-    accountsservice
-    zip
-    unzip
-    zellij
-    kdePackages.dolphin
-    flatpak
-    discord
-  ];
-
-  home.username = "jay";
-  home.homeDirectory = "/home/jay";
-  home.stateVersion = "25.11";
-  home.sessionVariables = {
-    EDITOR = "hx";
-  };
-
-  programs.git = {
-    enable = true;
-    settings.user = {
-      name = "jayhwkns";
-      email = "hawkinsjr27@gmail.com";
-    };
-  };
-
-  gtk = {
-    enable = true;
-    iconTheme.name = "GruvboxPlus";
-  };
-  
-  programs.fish.enable = true;
-  programs.dank-material-shell = {
-    enable = true;
-    dgop.package = dgop.packages.${pkgs.system}.default;
-
-    systemd = {
-      enable = true;
-      restartIfChanged = true;
-    };
-  };
-
-  programs.anyrun = {
-    enable = true;
-    config = {
-      x = { fraction = 0.5; };
-      y = { fraction = 0.3; };
-      width = { fraction = 0.3; };
-      hideIcons = false;
-      ignoreExclusiveZones = false;
-      layer = "overlay";
-      hidePluginInfo = false;
-      closeOnClick = false;
-      showResultsImmediately = false;
-      maxEntries = null;
-
-      plugins = [
-        "${pkgs.anyrun}/lib/libapplications.so"
-        "${pkgs.anyrun}/lib/libsymbols.so"
-      ];
-    };
-    extraCss = /*css */ ''
+  anyrunCss = /*css*/ ''
       @define-color accent #8ea4a2;
       @define-color bg-color #181616;
       @define-color fg-color #c5c9c5;
@@ -156,6 +83,60 @@ in
         background: transparent;
       }
     '';
+in
+{
+  home.username = "jay";
+  home.homeDirectory = "/home/jay";
+  home.stateVersion = "25.11";
+  home.sessionVariables = {
+    EDITOR = "hx";
+  };
+
+  programs.git = {
+    enable = true;
+    settings.user = {
+      name = "jayhwkns";
+      email = "hawkinsjr27@gmail.com";
+    };
+  };
+
+  gtk = {
+    enable = true;
+    iconTheme.name = "GruvboxPlus";
+  };
+  
+  programs.fish.enable = true;
+  programs.dank-material-shell = {
+    enable = true;
+    dgop.package = dgop.packages.${pkgs.system}.default;
+
+    systemd = {
+      enable = true;
+      restartIfChanged = true;
+    };
+  };
+
+  programs.anyrun = {
+    enable = true;
+    package = anyrun.packages.${pkgs.stdenv.hostPlatform.system}.anyrun-with-all-plugins;
+    config = {
+      x = { fraction = 0.5; };
+      y = { fraction = 0.3; };
+      width = { fraction = 0.3; };
+      hideIcons = false;
+      ignoreExclusiveZones = false;
+      layer = "overlay";
+      hidePluginInfo = false;
+      closeOnClick = false;
+      showResultsImmediately = false;
+      maxEntries = null;
+
+      plugins = [
+        "${pkgs.anyrun}/lib/libapplications.so"
+        "${pkgs.anyrun}/lib/libsymbols.so"
+      ];
+    };
+    extraCss = anyrunCss;
   };
 
   # Create symlinks to app config directories
@@ -164,4 +145,27 @@ in
       recursive = true;
     })
     configs;
+
+  home.packages = with pkgs; [
+    helix
+    nil
+    ripgrep
+    nixpkgs-fmt
+    nodejs
+    gcc
+    cava
+    cliphist
+    wl-clipboard
+    matugen
+    gnome-font-viewer
+    accountsservice
+    zip
+    unzip
+    zellij
+    kdePackages.dolphin
+    flatpak
+    discord
+    # process viewer
+    bottom
+  ];
 }
