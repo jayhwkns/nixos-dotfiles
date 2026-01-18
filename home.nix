@@ -102,7 +102,10 @@ in
   
   programs.fish = {
     enable = true;
-    shellInit = "set -g fish_key_bindings fish_vi_key_bindings";
+    shellInit = /*bash*/ ''
+      set -g fish_key_bindings fish_vi_key_bindings
+      set -U fish_greeting
+    '';
   };
   programs.dank-material-shell = {
     enable = true;
@@ -138,6 +141,15 @@ in
   };
 
   gtk.gtk3.iconTheme = "Papirus-Dark";
+
+  services.udiskie = {
+    enable = true;
+    settings = {
+      program_options = {
+        file_manager = "${pkgs.kdePackages.dolphin}/bin/dolphin";
+      };
+    };
+  };
 
   # Create symlinks to app config directories
   xdg.configFile = builtins.mapAttrs (name: subpath: {

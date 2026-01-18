@@ -48,6 +48,8 @@
   hardware.nvidia.open = false;
   hardware.graphics.enable32Bit = true;
 
+  services.udisks2.enable = true;
+
   # Enable CUPS to print documents.
   # services.printing.enable = true;
 
