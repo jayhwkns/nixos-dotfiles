@@ -125,6 +125,7 @@
     xrandr
     fish
     starship
+    libsecret
   ];
 }
 
