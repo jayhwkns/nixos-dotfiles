@@ -121,6 +121,8 @@
     cairo
     xwayland-satellite
     xrandr
+    fish
+    starship
   ];
 }
 

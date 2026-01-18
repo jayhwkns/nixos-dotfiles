@@ -100,7 +100,10 @@ in
     };
   };
   
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+    shellInit = "set -g fish_key_bindings fish_vi_key_bindings";
+  };
   programs.dank-material-shell = {
     enable = true;
     dgop.package = dgop.packages.${pkgs.system}.default;
