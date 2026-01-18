@@ -99,11 +99,6 @@ in
       email = "hawkinsjr27@gmail.com";
     };
   };
-
-  gtk = {
-    enable = true;
-    iconTheme.name = "GruvboxPlus";
-  };
   
   programs.fish.enable = true;
   programs.dank-material-shell = {
@@ -139,6 +134,8 @@ in
     extraCss = anyrunCss;
   };
 
+  gtk.gtk3.iconTheme = "Papirus-Dark";
+
   # Create symlinks to app config directories
   xdg.configFile = builtins.mapAttrs (name: subpath: {
       source = create_symlink "${dotfiles}/${subpath}";
@@ -167,5 +164,7 @@ in
     discord
     # process viewer
     bottom
+    bibata-cursors
+    papirus-icon-theme
   ];
 }
