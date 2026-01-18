@@ -1,0 +1,3 @@
+# Output is generated for each build, but we already have all necessary
+# information in .nix files
+config/anyrun/*
