@@ -128,7 +128,7 @@ cursor {
 // https://yalter.github.io/niri/Configuration:-Layout
 layout {
     // Set gaps around windows in logical pixels.
-    gaps 6
+    gaps 0
     
     // When to center a column when changing focus, options are:
     // - "never", default behavior, focusing an off-screen column will keep at the left
@@ -232,7 +232,7 @@ layout {
     // You can enable drop shadows for windows.
     shadow {
         // Uncomment the next line to enable shadows.
-        on
+        // on
 
         // By default, the shadow draws only around its window, and not behind it.
         // Uncomment this setting to make the shadow draw behind its window.
@@ -257,10 +257,10 @@ layout {
         softness 30
 
         // Spread expands the shadow.
-        spread 10
+        spread 5
 
         // Offset moves the shadow relative to the window.
-        offset x=0 y=0
+        offset x=0 y=5
 
         // You can also change the shadow color and opacity.
         color "#0007"
@@ -313,25 +313,15 @@ screenshot-path "~/Pictures/Screenshots/Screenshot_%Y-%m-%d_%H-%M-%S.png"
 // https://yalter.github.io/niri/Configuration:-Animations
 animations {
     // Uncomment to turn off all animations.
-    // off
+    off
 
     // Slow down all animations by this factor. Values below 1 speed them up instead.
-    slowdown 0.65
-
-    // I like the other animations but this one just whips you around istg
-    workspace-switch {
-        off
-    }
+    // slowdown 3.0
 }
 
 // Window rules let you adjust behavior for individual windows.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Window-Rules
-
-window-rule {
-    match is-focused=false
-    opacity 0.9
-}
 
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
@@ -366,8 +356,8 @@ window-rule {
 
 // Example: enable rounded corners for all windows.
 // (This example rule is commented out with a "/-" in front.)
-window-rule {
-    geometry-corner-radius 2
+/-window-rule {
+    geometry-corner-radius 0
     clip-to-geometry true
 }
 
@@ -644,5 +634,3 @@ binds {
 }
 
 include "dms/binds.kdl"
-
-include "dms/cursor.kdl"

@@ -10,7 +10,7 @@
   "dockTransparency": 1,
   "widgetBackgroundColor": "sch",
   "widgetColorMode": "default",
-  "cornerRadius": 5,
+  "cornerRadius": 2,
   "niriLayoutGapsOverride": -1,
   "niriLayoutRadiusOverride": -1,
   "niriLayoutBorderSize": -1,
@@ -177,9 +177,9 @@
   "iconTheme": "System Default",
   "cursorSettings": {
     "theme": "System Default",
-    "size": 24,
+    "size": 20,
     "niri": {
-      "hideWhenTyping": false,
+      "hideWhenTyping": true,
       "hideAfterInactiveMs": 0
     },
     "hyprland": {
@@ -245,7 +245,7 @@
   "runDmsMatugenTemplates": true,
   "matugenTemplateGtk": true,
   "matugenTemplateNiri": true,
-  "matugenTemplateHyprland": true,
+  "matugenTemplateHyprland": false,
   "matugenTemplateMangowc": true,
   "matugenTemplateQt5ct": true,
   "matugenTemplateQt6ct": true,
@@ -355,7 +355,11 @@
         "focusedWindow"
       ],
       "centerWidgets": [
-        "music",
+        {
+          "id": "music",
+          "enabled": true,
+          "mediaSize": 2
+        },
         "clock"
       ],
       "rightWidgets": [
@@ -368,14 +372,14 @@
         "controlCenterButton"
       ],
       "spacing": 0,
-      "innerPadding": -4,
-      "bottomGap": 0,
-      "transparency": 0.21,
+      "innerPadding": 0,
+      "bottomGap": -5,
+      "transparency": 0,
       "widgetTransparency": 0.82,
       "squareCorners": false,
       "noBackground": false,
-      "gothCornersEnabled": true,
-      "gothCornerRadiusOverride": false,
+      "gothCornersEnabled": false,
+      "gothCornerRadiusOverride": true,
       "gothCornerRadiusValue": 10,
       "borderEnabled": false,
       "borderColor": "surfaceText",
@@ -387,7 +391,11 @@
       "openOnOverview": false,
       "visible": true,
       "popupGapsAuto": true,
-      "popupGapsManual": 4
+      "popupGapsManual": 4,
+      "shadowIntensity": 0,
+      "shadowOpacity": 36,
+      "maximizeDetection": true,
+      "widgetOutlineEnabled": false
     }
   ],
   "desktopClockEnabled": false,
