@@ -166,5 +166,6 @@ in
     bottom
     bibata-cursors
     papirus-icon-theme
+    steam
   ];
 }

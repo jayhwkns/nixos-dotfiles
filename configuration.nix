@@ -41,9 +41,12 @@
     };
   };
 
+  # GRAPHICS CONFIG
   hardware.graphics.enable = true;
+  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = false;
+  hardware.graphics.enable32Bit = true;
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -76,22 +79,6 @@
 
   programs.firefox.enable = true;
 
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
-    helix
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    wget
-    git
-    alacritty
-    cargo
-    pkg-config
-    gdk-pixbuf
-    pango
-    cairo
-    xwayland-satellite
-  ];
-
   # needed for electron and chromium apps.
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
@@ -118,5 +105,22 @@
   # networking.firewall.enable = false;
 
   system.stateVersion = "25.11"; 
+
+  # List packages installed in system profile.
+  # You can use https://search.nixos.org/ to find more packages (and options).
+  environment.systemPackages = with pkgs; [
+    helix
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    wget
+    git
+    alacritty
+    cargo
+    pkg-config
+    gdk-pixbuf
+    pango
+    cairo
+    xwayland-satellite
+    xrandr
+  ];
 }
 
