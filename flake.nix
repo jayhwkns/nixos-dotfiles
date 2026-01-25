@@ -17,9 +17,14 @@
 
         # Use this version so we can use daemon
         anyrun.url = "github:anyrun-org/anyrun/v25.12.0"; 
+
+        niri = {
+            url = "github:YaLTeR/niri";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
     };
 
-    outputs = { self, nixpkgs, dms, dgop, anyrun, home-manager, ... }:
+    outputs = { self, nixpkgs, dms, dgop, anyrun, home-manager, niri, ... }:
     let
         system = "x86_64-linux";
     in {
@@ -46,6 +51,14 @@
                 };
                 }
                 dms.nixosModules.dank-material-shell
+
+                ({ pkgs, ... }: {
+                    nixpkgs.overlays = [
+                        (final: prev: {
+                            niri = niri.packages.${system}.default;
+                        })
+                    ];
+                })
             ];
         };
         homeConfigurations.user = home-manager.lib.homeManagerConfiguration {

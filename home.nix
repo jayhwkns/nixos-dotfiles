@@ -190,5 +190,9 @@ in
     bibata-cursors
     papirus-icon-theme
     steam
+    obs-studio
+    # helps steam run fullscreen games without goofiness
+    gamescope
+    vlc
   ];
 }

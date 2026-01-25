@@ -106,7 +106,37 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  system.stateVersion = "25.11"; 
+  system.stateVersion = "25.11";
+
+  # Steam config
+  hardware.graphics.extraPackages = [ pkgs.gamescope ];
+  programs = {
+    steam = {
+      enable = true;
+      gamescopeSession = {
+        enable = true;
+        env = {
+          WLR_RENDERER = "vulkan";
+          DXVK_HDR = "1";
+          ENABLE_GAMESCOPE_WSI = "1";
+          WINE_FULLSCREEN_FSR = "1";
+        };
+        args = [
+          "--output-width"
+          "1920"
+          "--output-height"
+          "1080"
+          "--steam"
+          "--prefer-output"
+          "DP-4"
+        ];
+      };
+    };
+    gamescope = {
+      enable = true;
+      capSysNice = true;
+    };
+  };
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -126,6 +156,8 @@
     fish
     starship
     libsecret
+    niri
+    killall
   ];
 }
 
