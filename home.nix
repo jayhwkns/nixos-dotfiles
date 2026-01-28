@@ -194,5 +194,7 @@ in
     # helps steam run fullscreen games without goofiness
     gamescope
     vlc
+    unityhub
+    alvr # stream vr to headset
   ];
 }
