@@ -161,6 +161,8 @@
     libsecret
     niri
     killall
+    usbutils
+    dotnetCorePackages.sdk_8_0_1xx
   ];
 }
 

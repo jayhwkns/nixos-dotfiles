@@ -194,7 +194,13 @@ in
     # helps steam run fullscreen games without goofiness
     gamescope
     vlc
+
+    # For work
     unityhub
     alvr # stream vr to headset
+    android-tools
+    mtpfs
+    gvfs
+    vscode
   ];
 }
