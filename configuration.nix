@@ -76,7 +76,9 @@
     ];
   };
 
-  programs.fish.enable = true;
+  programs.fish = {
+    enable = true;
+  };
   users.users.jay.shell = pkgs.fish;
 
   programs.firefox.enable = true;
@@ -149,7 +151,12 @@
     wget
     git
     alacritty
+
+    # Rust
     cargo
+    rustc
+    rust-analyzer
+    
     pkg-config
     gdk-pixbuf
     pango

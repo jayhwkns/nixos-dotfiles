@@ -104,6 +104,7 @@ in
         pkgs.git.override { withLibsecret = true; }
         }/bin/git-credential-libsecret";
       push.autoSetupRemote = true;
+      pull.rebase = true;
     };
   };
   
@@ -114,6 +115,9 @@ in
       set -g fish_key_bindings fish_vi_key_bindings
       set -U fish_greeting
     '';
+    shellAliases = {
+      nix-shell = "nix-shell . --command fish";
+    };
   };
   programs.dank-material-shell = {
     enable = true;
