@@ -143,6 +143,9 @@
   # Docker
   # virtualisation.docker.enable = true;
 
+  # helpful for .NET
+  programs.nix-ld.enable = true;
+
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
@@ -169,7 +172,7 @@
     niri
     killall
     usbutils
-    dotnetCorePackages.sdk_8_0_1xx
+    dotnetCorePackages.sdk_9_0_1xx
   ];
 }
 
