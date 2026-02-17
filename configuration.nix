@@ -86,7 +86,6 @@
   # needed for electron and chromium apps.
   environment.sessionVariables = {
     NIXOS_OZONE_WL = "1";
-    ELECTRON_OZONE_PLATFORM_HINT = "auto";
     DISPLAY = "0";
   };
 
@@ -145,6 +144,9 @@
 
   # helpful for .NET
   programs.nix-ld.enable = true;
+  programs.nix-ld.libraries = with pkgs; [
+    icu
+  ];
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
