@@ -18,3 +18,49 @@ indent = { tab-width = 4, unit = "  " }
 
 [language-server.clangd]
 command = "clangd"
+
+[[language]]
+name = "typescript"
+language-servers = [ "typescript-language-server", "eslint" ]
+# formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
+formatter = { command = "dprint", args = [ "fmt", "--stdin", "typescript" ] }
+auto-format = true
+
+[[language]]
+name = "tsx"
+language-servers = [ "typescript-language-server" ]
+# formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
+formatter = { command = "dprint", args = [ "fmt", "--stdin", "tsx" ] }
+auto-format = true
+
+[[language]]
+name = "javascript"
+language-servers = [ "typescript-language-server", "eslint", "emmet-ls" ]
+# formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
+formatter = { command = "dprint", args = [ "fmt", "--stdin", "javascript" ] }
+auto-format = true
+
+[[language]]
+name = "jsx"
+language-servers = [ "typescript-language-server", "eslint", "emmet-ls" ]
+# formatter = { command = "prettier", args = [ "--parser", "typescript" ] }
+formatter = { command = "dprint", args = [ "fmt", "--stdin", "jsx" ] }
+auto-format = true
+
+[[language]]
+name = "json"
+# formatter = { command = "prettier", args = [ "--parser", "json" ] }
+formatter = { command = "dprint", args = [ "fmt", "--stdin", "json" ] }
+auto-format = true
+
+[[language]]
+name = "html"
+language-servers = [ "vscode-html-language-server", "emmet-ls" ]
+formatter = { command = 'prettier', args = ["--parser", "html"] }
+auto-format = true
+
+[[language]]
+name = "css"
+language-servers = [ "vscode-css-language-server", "emmet-ls" ]
+formatter = { command = 'prettier', args = ["--parser", "css"] }
+auto-format = true

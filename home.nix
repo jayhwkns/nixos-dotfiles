@@ -206,5 +206,11 @@ in
     mtpfs
     gvfs
     vscode
+
+    typescript-language-server
+    dprint
+    vscode-json-languageserver
+    eslint
+    vscode-css-languageserver
   ];
 }

@@ -43,9 +43,13 @@
 
   # GRAPHICS CONFIG
   hardware.graphics.enable = true;
-  hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+  hardware.nvidia = {
+    modesetting.enable = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    open = true;
+    nvidiaSettings = true;
+  };
   services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.nvidia.open = false;
   hardware.graphics.enable32Bit = true;
 
   services.udisks2.enable = true;
@@ -83,9 +87,7 @@
 
   programs.firefox.enable = true;
 
-  # needed for electron and chromium apps.
   environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
     DISPLAY = "0";
   };
 
