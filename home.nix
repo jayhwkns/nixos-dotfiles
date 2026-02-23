@@ -212,5 +212,7 @@ in
     vscode-json-languageserver
     eslint
     vscode-css-languageserver
+
+    zoom-us
   ];
 }
