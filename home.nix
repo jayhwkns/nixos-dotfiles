@@ -90,6 +90,8 @@ in
   home.stateVersion = "25.11";
   home.sessionVariables = {
     EDITOR = "hx";
+    KDE_SESSION_VERSION = "5";
+    KDE_FULL_SESSION = "true";
   };
 
   programs.git = {
@@ -170,6 +172,41 @@ in
     })
     configs;
 
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      kdePackages.kde-cli-tools
+      kdePackages.xdg-desktop-portal-kde
+    ];
+    configPackages = with pkgs; [
+      kdePackages.kde-cli-tools
+    ];
+
+    config = {
+      common = {
+        default = [ "kde" ];
+        # Explicitly tell portals to use KDE for secret service
+        "org.freedesktop.impl.portal.Secret" = [ "kde" ];
+      };
+    };
+  };
+
+  programs.obs-studio = {
+    enable = true;
+
+    package = (
+      pkgs.obs-studio.override {
+        cudaSupport = true;
+      }
+    );
+
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-gstreamer
+      obs-vkcapture
+    ];
+  };
+
   home.packages = with pkgs; [
     helix
     nil
@@ -186,7 +223,6 @@ in
     zip
     unzip
     zellij
-    kdePackages.dolphin
     flatpak
     discord
     # process viewer
@@ -194,7 +230,6 @@ in
     bibata-cursors
     papirus-icon-theme
     steam
-    obs-studio
     # helps steam run fullscreen games without goofiness
     gamescope
     vlc
@@ -214,5 +249,15 @@ in
     vscode-css-languageserver
 
     zoom-us
+    gamemode
+    python3
+    gimp
+
+    # KDE apps
+    kdePackages.dolphin
+    kdePackages.kio
+    kdePackages.kio-extras
+    kdePackages.kwalletmanager
+    kdePackages.kwallet
   ];
 }

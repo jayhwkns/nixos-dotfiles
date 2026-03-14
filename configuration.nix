@@ -74,7 +74,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jay = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" "adbusers" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
     ];
@@ -89,6 +89,7 @@
 
   environment.sessionVariables = {
     DISPLAY = "0";
+    GTK_USE_PORTAL=1;
   };
 
   fonts.packages = with pkgs; [
@@ -142,13 +143,27 @@
   };
 
   # Docker
-  # virtualisation.docker.enable = true;
+  virtualisation.docker.enable = true;
 
   # helpful for .NET
   programs.nix-ld.enable = true;
   programs.nix-ld.libraries = with pkgs; [
     icu
   ];
+
+  programs.adb.enable = true;
+
+  # configure keyrings
+  # disable GNOME keyring
+  services.gnome.gnome-keyring.enable = false;
+  security.pam.services = {
+    jay = {
+      kwallet = {
+        enable = true;
+        package = pkgs.kdePackages.kwallet-pam;
+      };
+    };
+  };
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
@@ -177,6 +192,7 @@
     killall
     usbutils
     dotnetCorePackages.sdk_9_0_1xx
+    gtk3
   ];
 }
 
