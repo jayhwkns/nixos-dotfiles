@@ -92,7 +92,6 @@
 
   environment.sessionVariables = {
     DISPLAY = "0";
-    GTK_USE_PORTAL=1;
   };
 
   fonts.packages = with pkgs; [
@@ -163,14 +162,39 @@
     enable = true;
     xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
-      xdg-desktop-portal-gtk
       kdePackages.xdg-desktop-portal-kde
     ];
     configPackages = with pkgs; [
       kdePackages.xdg-desktop-portal-kde
-      xdg-desktop-portal-gtk
     ];
-    config.common.default = "kde";
+    config = {
+      common.default = "kde";
+    };
+  };
+  # Fix portal startup order. KDE portal first. Main second
+  systemd.user.services = {
+    plasma-xdg-desktop-portal-kde = {
+      wantedBy = [ "graphical-session-pre.target" ];
+      partOf = [ "graphical-session.target" ];
+      after = [ "dbus.service" ];
+      serviceConfig = {
+        Type = "dbus";
+        BusName = "org.freedesktop.impl.portal.desktop.kde";
+      };
+    };
+
+    xdg-desktop-portal = {
+      after = [ "plasma-xdg-desktop-portal-kde.service" ];
+      requires = [ "plasma-xdg-desktop-portal-kde.service" ];
+      # Disable RealtimeKit
+      environment = {
+        XDG_DESKTOP_PORTAL_NO_RTKIT = "1";
+      };
+      serviceConfig = {
+        Type = "dbus";
+        BusName = "org.freedesktop.impl.portal.Desktop";
+      };
+    };
   };
 
   # configure keyrings

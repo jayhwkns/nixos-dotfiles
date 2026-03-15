@@ -93,7 +93,6 @@ in
     KDE_SESSION_VERSION = "5";
     KDE_FULL_SESSION = "true";
     QT_QPA_PLATFORM = "wayland";
-    QT_QPA_PLATFORMTHEME = "gtk3";
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
 
@@ -176,7 +175,6 @@ in
   xdg.portal = {
     enable = true;
     extraPortals = with pkgs; [ 
-      xdg-desktop-portal-gtk 
       kdePackages.xdg-desktop-portal-kde 
     ];
     config.common.default = "kde";
