@@ -92,6 +92,9 @@ in
     EDITOR = "hx";
     KDE_SESSION_VERSION = "5";
     KDE_FULL_SESSION = "true";
+    QT_QPA_PLATFORM = "wayland";
+    QT_QPA_PLATFORMTHEME = "gtk3";
+    ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
 
   programs.git = {
@@ -121,14 +124,12 @@ in
       nix-shell = "nix-shell . --command fish";
     };
   };
+
   programs.dank-material-shell = {
     enable = true;
     dgop.package = dgop.packages.${pkgs.system}.default;
-
-    systemd = {
-      enable = true;
-      restartIfChanged = true;
-    };
+    # Needed because we're using the official niri flake
+    systemd.enable = true;
   };
 
   programs.anyrun = {
@@ -257,7 +258,5 @@ in
     kdePackages.dolphin
     kdePackages.kio
     kdePackages.kio-extras
-    kdePackages.kwalletmanager
-    kdePackages.kwallet
   ];
 }

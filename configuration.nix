@@ -74,7 +74,12 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jay = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "adbusers" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "docker"
+      "adbusers"
+      "networkmanager"
+    ];
     packages = with pkgs; [
       tree
     ];
@@ -156,14 +161,6 @@
   # configure keyrings
   # disable GNOME keyring
   services.gnome.gnome-keyring.enable = false;
-  security.pam.services = {
-    jay = {
-      kwallet = {
-        enable = true;
-        package = pkgs.kdePackages.kwallet-pam;
-      };
-    };
-  };
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).

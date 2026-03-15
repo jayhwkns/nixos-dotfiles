@@ -34,23 +34,22 @@
                 ./configuration.nix
                 home-manager.nixosModules.home-manager
                 {
-                home-manager = { 
-                    useGlobalPkgs = true;
-                    useUserPackages = true;
-                    extraSpecialArgs = {
-                        inherit dgop;
-                        inherit anyrun;
+                    home-manager = { 
+                        useGlobalPkgs = true;
+                        useUserPackages = true;
+                        extraSpecialArgs = {
+                            inherit dgop;
+                            inherit anyrun;
+                        };
+                        users.jay = {
+                            imports = [
+                                ./home.nix
+                                dms.homeModules.dank-material-shell
+                            ];
+                        };
+                        backupFileExtension = "backup";
                     };
-                    users.jay = {
-                        imports = [
-                            ./home.nix
-                            dms.homeModules.dank-material-shell
-                        ];
-                    };
-                    backupFileExtension = "backup";
-                };
                 }
-                dms.nixosModules.dank-material-shell
 
                 ({ pkgs, ... }: {
                     nixpkgs.overlays = [
