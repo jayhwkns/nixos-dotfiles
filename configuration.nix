@@ -12,10 +12,14 @@ let
   '';
 in {
   imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./steam.nix
+    ./nvidia.nix
+    ./portal.nix
+  ];
 
+  # Allow unfree packages such as nvidia drivers
   nixpkgs.config.allowUnfree = true;
 
   # Use the systemd-boot EFI boot loader.
@@ -45,25 +49,8 @@ in {
     };
   };
 
-  # GRAPHICS CONFIG
-  hardware.graphics.enable = true;
-  hardware.nvidia = {
-    modesetting.enable = true;
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
-    open = true;
-    nvidiaSettings = true;
-  };
-  services.xserver.videoDrivers = [ "nvidia" ];
-  hardware.graphics.enable32Bit = true;
-
   services.udisks2.enable = true;
 
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
-
-  # Enable sound.
-  # services.pulseaudio.enable = true;
-  # OR
   services.pipewire = {
     enable = true;
     pulse.enable = true;
@@ -101,6 +88,7 @@ in {
   };
 
   fonts.packages = with pkgs; [
+    nerd-fonts.liberation
     nerd-fonts.jetbrains-mono
     victor-mono
     nerd-fonts.victor-mono
@@ -120,35 +108,6 @@ in {
 
   system.stateVersion = "25.11";
 
-  # Steam config
-  hardware.graphics.extraPackages = [ pkgs.gamescope ];
-  programs = {
-    steam = {
-      enable = true;
-      gamescopeSession = {
-        enable = true;
-        env = {
-          WLR_RENDERER = "vulkan";
-          DXVK_HDR = "1";
-          ENABLE_GAMESCOPE_WSI = "1";
-          WINE_FULLSCREEN_FSR = "1";
-        };
-        args = [
-          "--output-width"
-          "1920"
-          "--output-height"
-          "1080"
-          "--steam"
-          "--prefer-output"
-          "DP-4"
-        ];
-      };
-    };
-    gamescope = {
-      enable = true;
-      capSysNice = true;
-    };
-  };
 
   # Docker
   virtualisation.docker.enable = true;
@@ -159,89 +118,7 @@ in {
     icu
   ];
 
-  programs.adb.enable = true;
-
   programs.niri.enable = true;
-
-  # Configure portal system-wide. Not in home!!!
-  xdg.portal = {
-    enable = true;
-    xdgOpenUsePortal = true;
-    extraPortals = with pkgs; [
-      xdg-desktop-portal-gnome
-      xdg-desktop-portal-gtk
-    ];
-    configPackages = with pkgs; [
-      xdg-desktop-portal-gnome
-      xdg-desktop-portal-gtk
-    ];
-    # Don't generate service files. We've done so below.
-    config = {
-      niri = {
-        "org.freedesktop.portal.OpenURI" = "gnome";
-        default = ["gnome" "gtk"];
-      };
-    };
-  };
-  # Enforce portal order for faster boot time
-  systemd.user.services = {
-    xdg-desktop-portal-gnome = {
-      overrideStrategy = "asDropin";
-      description = "Portal service (GNOME backend)";
-      wantedBy = [ "graphical-session-pre.target" ];
-      partOf = [ "graphical-session.target" ];
-      after = [ "dbus.service" ];
-      serviceConfig = {
-        Type = "dbus";
-        BusName = "org.freedesktop.impl.portal.desktop.gnome";
-        Restart = "on-failure";
-        RestartSec = "1";
-        TimeoutStartSec = "10";
-      };
-    };
-
-    xdg-desktop-portal-gtk = {
-      overrideStrategy = "asDropin";
-      description = "Portal service (GTK backend)";
-      wantedBy = [ "graphical-session-pre.target" ];
-      partOf = [ "graphical-session.target" ];
-      after = [ "dbus.service" ];
-      serviceConfig = {
-        Type = "dbus";
-        BusName = "org.freedesktop.impl.portal.desktop.gtk";
-        Restart = "on-failure";
-        RestartSec = "1";
-        TimeoutStartSec = "10";
-      };
-    };
-
-    xdg-desktop-portal = {
-      overrideStrategy = "asDropin";
-      description = "Portal service";
-      wantedBy = [ "graphical-session.target" ];
-      after = [ 
-        "xdg-desktop-portal-gnome.service" 
-        "xdg-desktop-portal-gtk.service" 
-        "dbus.service" 
-      ];
-      requires = [ 
-        "xdg-desktop-portal-gnome.service" 
-        "xdg-desktop-portal-gtk.service" 
-      ];
-      
-      serviceConfig = {
-        Type = "dbus";
-        BusName = "org.freedesktop.portal.Desktop";
-        Restart = "on-failure";
-        RestartSec = "1";
-        TimeoutStartSec = "10";
-        Environment = "XDG_DESKTOP_PORTAL_NO_RTKIT=1";
-      };
-    };
-  };
-
-  # Needed for git-credential-manger libsecret
-  services.gnome.gnome-keyring.enable = true;
 
   # Garbage collector
   nix.gc = {

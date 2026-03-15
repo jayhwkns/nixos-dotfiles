@@ -1,4 +1,4 @@
-{ config, pkgs, dgop, anyrun, ... }:
+{ config, pkgs, ... }:
 
 let
   dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
@@ -7,8 +7,6 @@ let
     niri = "niri";
     alacritty = "alacritty";
     helix = "helix";
-    dms = "dms";
-    DankMaterialShell = "DankMaterialShell";
     zellij = "zellij";
   };
   anyrunCss = /*css*/ ''
@@ -123,16 +121,8 @@ in
     };
   };
 
-  programs.dank-material-shell = {
-    enable = true;
-    dgop.package = dgop.packages.${pkgs.stdenv.hostPlatform.system}.default;
-    # Needed because we're using the official niri flake
-    systemd.enable = true;
-  };
-
   programs.anyrun = {
     enable = true;
-    package = anyrun.packages.${pkgs.stdenv.hostPlatform.system}.anyrun-with-all-plugins;
     config = {
       x = { fraction = 0.5; };
       y = { fraction = 0.3; };
@@ -193,6 +183,7 @@ in
     ripgrep
     nixpkgs-fmt
     nodejs
+    anyrun
     gcc
     cava
     cliphist
@@ -237,5 +228,11 @@ in
     kdePackages.dolphin
     kdePackages.kio
     kdePackages.kio-extras
+
+    # for pause/play/skip
+    playerctl
+
+    mesa-demos
+    protonup-rs
   ];
 }
