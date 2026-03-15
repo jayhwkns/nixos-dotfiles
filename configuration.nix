@@ -19,6 +19,9 @@ in {
     ./portal.nix
   ];
 
+  # Allow unfree packages such as nvidia drivers
+  nixpkgs.config.allowUnfree = true;
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -85,7 +88,7 @@ in {
   };
 
   fonts.packages = with pkgs; [
-    liberation-ttf
+    nerd-fonts.liberation
     nerd-fonts.jetbrains-mono
     victor-mono
     nerd-fonts.victor-mono
@@ -114,8 +117,6 @@ in {
   programs.nix-ld.libraries = with pkgs; [
     icu
   ];
-
-  programs.adb.enable = true;
 
   programs.niri.enable = true;
 

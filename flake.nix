@@ -8,21 +8,23 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-       noctalia = {
+    noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.noctalia-qt.follows = "noctalia-qs";
+      inputs.noctalia-qs.follows = "noctalia-qs";
     };
-       niri = {
+    noctalia-qs = {
+      url = "github:noctalia-dev/noctalia-qs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    niri = {
       url = "github:YaLTeR/niri";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
-  let
-    system = "x86_64-linux";
-  in {
+  {
     nixosConfigurations.rainier = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
@@ -32,12 +34,9 @@
         # Home Manager
         inputs.home-manager.nixosModules.home-manager
         {
-          inputs.home-manager = { 
+          home-manager = { 
             useGlobalPkgs = true;
             useUserPackages = true;
-            extraSpecialArgs = {
-              inherit niri;
-            };
             users.jay = {
               imports = [
                 ./home.nix
@@ -46,6 +45,7 @@
             backupFileExtension = "backup";
           };
         }
+        # Desktop Shell
         ./noctalia.nix
       ];
     };

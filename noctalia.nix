@@ -14,29 +14,17 @@
         # configure noctalia here
         bar = {
           density = "compact";
-          position = "right";
+          position = "top";
           showCapsule = false;
           widgets = {
             left = [
-              {
-                id = "ControlCenter";
-                useDistroLogo = true;
-              }
-              {
-                id = "Network";
-              }
-              {
-                id = "Bluetooth";
-              }
-            ];
-            center = [
               {
                 hideUnoccupied = false;
                 id = "Workspace";
                 labelMode = "none";
               }
             ];
-            right = [
+            center = [
               {
                 alwaysShowPercentage = false;
                 id = "Battery";
@@ -50,19 +38,30 @@
                 usePrimaryColor = true;
               }
             ];
+            right = [
+              {
+                id = "ControlCenter";
+                useDistroLogo = true;
+              }
+              {
+                id = "Network";
+              }
+              {
+                id = "Bluetooth";
+              }
+            ];
           };
         };
-        colorSchemes.predefinedScheme = "Monochrome";
+        colorSchemes.predefinedScheme = "Kanagawa";
         general = {
-          avatarImage = "/home/drfoobar/.face";
-          radiusRatio = 0.2;
+          avatarImage = "/home/jay/.face";
+          radiusRatio = 0;
         };
         location = {
           monthBeforeDay = true;
-          name = "Marseille, France";
+          name = "Houghton, MI";
         };
       };
-      # this may also be a string or a path to a JSON file.
     };
   };
 }
