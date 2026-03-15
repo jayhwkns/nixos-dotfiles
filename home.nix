@@ -127,7 +127,7 @@ in
 
   programs.dank-material-shell = {
     enable = true;
-    dgop.package = dgop.packages.${pkgs.system}.default;
+    dgop.package = dgop.packages.${pkgs.stdenv.hostPlatform.system}.default;
     # Needed because we're using the official niri flake
     systemd.enable = true;
   };
@@ -175,21 +175,11 @@ in
 
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [
-      kdePackages.kde-cli-tools
-      kdePackages.xdg-desktop-portal-kde
+    extraPortals = with pkgs; [ 
+      xdg-desktop-portal-gtk 
+      kdePackages.xdg-desktop-portal-kde 
     ];
-    configPackages = with pkgs; [
-      kdePackages.kde-cli-tools
-    ];
-
-    config = {
-      common = {
-        default = [ "kde" ];
-        # Explicitly tell portals to use KDE for secret service
-        "org.freedesktop.impl.portal.Secret" = [ "kde" ];
-      };
-    };
+    config.common.default = "kde";
   };
 
   programs.obs-studio = {

@@ -27,8 +27,6 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
-  programs.niri.enable = true;
-
   services.displayManager.ly = {
     enable = true;
     settings = {
@@ -158,6 +156,23 @@
 
   programs.adb.enable = true;
 
+  programs.niri.enable = true;
+
+  # Configure portal system-wide
+  xdg.portal = {
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-gtk
+      kdePackages.xdg-desktop-portal-kde
+    ];
+    configPackages = with pkgs; [
+      kdePackages.xdg-desktop-portal-kde
+      xdg-desktop-portal-gtk
+    ];
+    config.common.default = "kde";
+  };
+
   # configure keyrings
   # disable GNOME keyring
   services.gnome.gnome-keyring.enable = false;
@@ -185,7 +200,6 @@
     fish
     starship
     libsecret
-    niri
     killall
     usbutils
     dotnetCorePackages.sdk_9_0_1xx

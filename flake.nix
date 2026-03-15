@@ -1,5 +1,5 @@
 {
-    description = "Following NixOS Tutorial";
+    description = "Flake based configuration for Jay's desktop";
     inputs = {
         nixpkgs.url = "github:NixOS/nixpkgs/release-25.11";
         home-manager = {
@@ -24,7 +24,7 @@
         };
     };
 
-    outputs = { self, nixpkgs, dms, dgop, anyrun, home-manager, niri, ... }:
+    outputs = { nixpkgs, dms, dgop, anyrun, home-manager, niri, ... }:
     let
         system = "x86_64-linux";
     in {
@@ -40,6 +40,7 @@
                         extraSpecialArgs = {
                             inherit dgop;
                             inherit anyrun;
+                            inherit niri;
                         };
                         users.jay = {
                             imports = [
@@ -53,8 +54,8 @@
 
                 ({ pkgs, ... }: {
                     nixpkgs.overlays = [
-                        (final: prev: {
-                            niri = niri.packages.${system}.default;
+                        (final: prev: with pkgs; {
+                            niri = niri.packages.${stdenv.hostPlatform.system}.default;
                         })
                     ];
                 })
