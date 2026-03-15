@@ -7,8 +7,6 @@ let
     niri = "niri";
     alacritty = "alacritty";
     helix = "helix";
-    dms = "dms";
-    DankMaterialShell = "DankMaterialShell";
     zellij = "zellij";
   };
   anyrunCss = /*css*/ ''

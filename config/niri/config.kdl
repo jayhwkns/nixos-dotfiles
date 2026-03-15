@@ -648,6 +648,7 @@ binds {
     Mod+Shift+P { power-off-monitors; }
 }
 
-include "dms/binds.kdl"
-
-include "dms/cursor.kdl"
+debug {
+  // Allows notification actions and window activation from Noctalia.
+  honor-xdg-activation-with-invalid-serial
+}
