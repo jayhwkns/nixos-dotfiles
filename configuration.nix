@@ -206,6 +206,13 @@ in {
   # Needed for git-credential-manger libsecret
   services.gnome.gnome-keyring.enable = true;
 
+  # Garbage collector
+  nix.gc = {
+    automatic = true;
+    dates = "daily";
+    options = "--delete-older-than 7d";
+  };
+
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
