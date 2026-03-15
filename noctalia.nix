@@ -1,10 +1,12 @@
 { pkgs, inputs, ... }:
 {
-
   home-manager.users.jay = {
     # import the home manager module
     imports = [
       inputs.noctalia.homeModules.default
+    ];
+    home.packages = [
+      inputs.noctalia-qs.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
     # configure options
@@ -21,15 +23,13 @@
               {
                 hideUnoccupied = false;
                 id = "Workspace";
-                labelMode = "none";
+                labelMode = "index";
+              }
+              {
+                id = "MediaMini";
               }
             ];
             center = [
-              {
-                alwaysShowPercentage = false;
-                id = "Battery";
-                warningThreshold = 30;
-              }
               {
                 formatHorizontal = "HH:mm";
                 formatVertical = "HH mm";
@@ -40,19 +40,43 @@
             ];
             right = [
               {
-                id = "ControlCenter";
-                useDistroLogo = true;
+                id = "Tray";
+              }
+              {
+                id = "NotificationHistory";
+                maximumWidth = "312";
+              }
+              {
+                id = "Brightness";
+              }
+              {
+                id = "Bluetooth";
               }
               {
                 id = "Network";
               }
               {
-                id = "Bluetooth";
+                alwaysShowPercentage = false;
+                id = "Battery";
+                warningThreshold = 30;
+              }
+              {
+                id = "ControlCenter";
+                useDistroLogo = true;
+                enableColorization = true;
               }
             ];
           };
         };
-        colorSchemes.predefinedScheme = "Kanagawa";
+        colorSchemes = {
+          useWallpaperColors = true;
+          generationMethod = "muted";
+          schedulingMode = "location";
+        };
+        nightLight = {
+          enabled = true;
+          autoSchedule = true;
+        };
         general = {
           avatarImage = "/home/jay/.face";
           radiusRatio = 0;
@@ -60,6 +84,9 @@
         location = {
           monthBeforeDay = true;
           name = "Houghton, MI";
+        };
+        wallpaper = {
+          transitionType = [ "pixelate" ];
         };
       };
     };

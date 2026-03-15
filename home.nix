@@ -228,5 +228,6 @@ in
     kdePackages.dolphin
     kdePackages.kio
     kdePackages.kio-extras
+    playerctl
   ];
 }
