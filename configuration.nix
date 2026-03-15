@@ -197,9 +197,8 @@
     };
   };
 
-  # configure keyrings
-  # disable GNOME keyring
-  services.gnome.gnome-keyring.enable = false;
+  # Needed for git-credential-manger libsecret
+  services.gnome.gnome-keyring.enable = true;
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
