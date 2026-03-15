@@ -4,7 +4,13 @@
 
 { config, lib, pkgs, ... }:
 
-{
+let
+  # Creates a package that symlinks the plasma menu to the standard location
+  kde-application-menu-fix = pkgs.runCommandLocal "xdg-application-menu" { } ''
+    mkdir -p $out/etc/xdg/menus/
+    ln -s ${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu $out/etc/xdg/menus/applications.menu
+  '';
+in {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -227,6 +233,7 @@
     usbutils
     dotnetCorePackages.sdk_9_0_1xx
     gtk3
+    kde-application-menu-fix
   ];
 }
 
