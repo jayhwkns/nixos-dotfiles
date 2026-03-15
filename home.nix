@@ -90,10 +90,9 @@ in
   home.stateVersion = "25.11";
   home.sessionVariables = {
     EDITOR = "hx";
-    KDE_SESSION_VERSION = "5";
-    KDE_FULL_SESSION = "true";
     QT_QPA_PLATFORM = "wayland";
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
+    PROTON_ENABLE_WAYLAND = "1";
   };
 
   programs.git = {
@@ -171,14 +170,6 @@ in
       recursive = true;
     })
     configs;
-
-  xdg.portal = {
-    enable = true;
-    extraPortals = with pkgs; [ 
-      kdePackages.xdg-desktop-portal-kde 
-    ];
-    config.common.default = "kde";
-  };
 
   programs.obs-studio = {
     enable = true;

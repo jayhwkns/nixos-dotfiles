@@ -163,42 +163,79 @@ in {
 
   programs.niri.enable = true;
 
-  # Configure portal system-wide
+  # Configure portal system-wide. Not in home!!!
   xdg.portal = {
     enable = true;
     xdgOpenUsePortal = true;
     extraPortals = with pkgs; [
-      kdePackages.xdg-desktop-portal-kde
+      xdg-desktop-portal-gnome
+      xdg-desktop-portal-gtk
     ];
     configPackages = with pkgs; [
-      kdePackages.xdg-desktop-portal-kde
+      xdg-desktop-portal-gnome
+      xdg-desktop-portal-gtk
     ];
+    # Don't generate service files. We've done so below.
     config = {
-      common.default = "kde";
+      niri = {
+        "org.freedesktop.portal.OpenURI" = "gnome";
+        default = ["gnome" "gtk"];
+      };
     };
   };
-  # Fix portal startup order. KDE portal first. Main second
+  # Enforce portal order for faster boot time
   systemd.user.services = {
-    plasma-xdg-desktop-portal-kde = {
+    xdg-desktop-portal-gnome = {
+      overrideStrategy = "asDropin";
+      description = "Portal service (GNOME backend)";
       wantedBy = [ "graphical-session-pre.target" ];
       partOf = [ "graphical-session.target" ];
       after = [ "dbus.service" ];
       serviceConfig = {
         Type = "dbus";
-        BusName = "org.freedesktop.impl.portal.desktop.kde";
+        BusName = "org.freedesktop.impl.portal.desktop.gnome";
+        Restart = "on-failure";
+        RestartSec = "1";
+        TimeoutStartSec = "10";
+      };
+    };
+
+    xdg-desktop-portal-gtk = {
+      overrideStrategy = "asDropin";
+      description = "Portal service (GTK backend)";
+      wantedBy = [ "graphical-session-pre.target" ];
+      partOf = [ "graphical-session.target" ];
+      after = [ "dbus.service" ];
+      serviceConfig = {
+        Type = "dbus";
+        BusName = "org.freedesktop.impl.portal.desktop.gtk";
+        Restart = "on-failure";
+        RestartSec = "1";
+        TimeoutStartSec = "10";
       };
     };
 
     xdg-desktop-portal = {
-      after = [ "plasma-xdg-desktop-portal-kde.service" ];
-      requires = [ "plasma-xdg-desktop-portal-kde.service" ];
-      # Disable RealtimeKit
-      environment = {
-        XDG_DESKTOP_PORTAL_NO_RTKIT = "1";
-      };
+      overrideStrategy = "asDropin";
+      description = "Portal service";
+      wantedBy = [ "graphical-session.target" ];
+      after = [ 
+        "xdg-desktop-portal-gnome.service" 
+        "xdg-desktop-portal-gtk.service" 
+        "dbus.service" 
+      ];
+      requires = [ 
+        "xdg-desktop-portal-gnome.service" 
+        "xdg-desktop-portal-gtk.service" 
+      ];
+      
       serviceConfig = {
         Type = "dbus";
-        BusName = "org.freedesktop.impl.portal.Desktop";
+        BusName = "org.freedesktop.portal.Desktop";
+        Restart = "on-failure";
+        RestartSec = "1";
+        TimeoutStartSec = "10";
+        Environment = "XDG_DESKTOP_PORTAL_NO_RTKIT=1";
       };
     };
   };
