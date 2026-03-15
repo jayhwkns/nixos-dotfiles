@@ -228,6 +228,11 @@ in
     kdePackages.dolphin
     kdePackages.kio
     kdePackages.kio-extras
+
+    # for pause/play/skip
     playerctl
+
+    mesa-demos
+    protonup-rs
   ];
 }

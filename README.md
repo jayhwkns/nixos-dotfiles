@@ -8,7 +8,7 @@
 
 ## Reference Dotfiles
 
-Nix is so archaic to me, so most of this is not original work.
+Nix is so archaic to me, so a lot of reference material was used
 
 - [mikuri12](https://github.com/mikuri12/my-nixos-config)
 - [viitorags](https://github.com/viitorags/nixdots)

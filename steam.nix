@@ -1,15 +1,26 @@
 { pkgs, inputs, ... }:
 {
   # Steam config
-  hardware.graphics.extraPackages = [ pkgs.gamescope ];
   programs = {
     steam = {
       enable = true;
-      gamescopeSession.enable = true;
-    };
-    gamescope = {
-      enable = true;
-      capSysNice = true;
+      package = pkgs.steam.override {
+        extraPkgs = pkgs: with pkgs; [
+          libXcursor
+          libXi
+          libXinerama
+          libXScrnSaver
+          libpng
+          libpulseaudio
+          libvorbis
+          stdenv.cc.cc.lib # Provides libstdc++.so.6
+          libkrb5
+          keyutils
+        ];
+      };
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
     };
   };
 }
