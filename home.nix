@@ -90,7 +90,6 @@ in
     EDITOR = "hx";
     QT_QPA_PLATFORM = "wayland";
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
-    PROTON_ENABLE_WAYLAND = "1";
   };
 
   programs.git = {

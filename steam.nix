@@ -1,6 +1,7 @@
 { pkgs, inputs, ... }:
 {
   # Steam config
+  # NOTE: Many games will run better on Proton-GE than gamescope
   programs = {
     steam = {
       enable = true;
@@ -22,5 +23,11 @@
         proton-ge-bin
       ];
     };
+
+    gamemode.enable = true;
+  };
+
+  environment.sessionVariables = {
+    PROTON_ENABLE_WAYLAND = "1";
   };
 }
