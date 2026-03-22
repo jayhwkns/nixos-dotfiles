@@ -18,6 +18,7 @@
           density = "compact";
           position = "top";
           showCapsule = false;
+          contentPadding = 4;
           widgets = {
             left = [
               {
@@ -43,14 +44,20 @@
                 id = "Tray";
               }
               {
+                id = "SystemMonitor";
+              }
+              {
                 id = "NotificationHistory";
                 maximumWidth = "312";
               }
-              {
-                id = "Brightness";
-              }
+              # {
+              #   id = "Brightness";
+              # }
               {
                 id = "Bluetooth";
+              }
+              {
+                id = "Volume";
               }
               {
                 id = "Network";
@@ -87,6 +94,22 @@
         };
         wallpaper = {
           transitionType = [ "pixelate" ];
+        };
+        dock.enabled = false;
+        idle = {
+          enabled = true;
+          screenOffTimeout = 600;
+          # disable lock and suspend
+          lockTimeout = 0;
+          suspendTimeout = 0;
+          fadeDuration = 1;
+          screenOffCommand = "";
+          lockCommand = "";
+          suspendCommand = "";
+          resumeScreenOffCommand = "";
+          resumeLockCommand = "";
+          resumeSuspendCommand = "";
+          customCommands = "[]";
         };
       };
     };

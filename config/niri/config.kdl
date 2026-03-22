@@ -120,7 +120,7 @@ output "DP-4" {
     // so to put another output directly adjacent to it on the right, set its x to 1920.
     // If the position is unset or results in an overlap, the output is instead placed
     // automatically.
-    position x=1280 y=0
+    position x=0 y=0
 }
 
 // Settings that influence how windows are positioned and sized.
@@ -655,6 +655,11 @@ binds {
     XF86AudioMute { spawn-sh "noctalia-shell ipc call volume muteOutput"; }
     XF86MonBrightnessUp { spawn-sh "noctalia-shell ipc call brightness increase"; }
     XF86MonBrightnessDown { spawn-sh "noctalia-shell ipc call brightness decrease"; }
+}
+
+window-rule {
+    match app-id="steam" title=r#"^notificationtoasts_\d+_desktop$"#
+    default-floating-position x=10 y=10 relative-to="bottom-right"
 }
 
 debug {
