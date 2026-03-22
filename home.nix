@@ -233,5 +233,6 @@ in
 
     mesa-demos
     protonup-rs
+    kdePackages.filelight
   ];
 }
