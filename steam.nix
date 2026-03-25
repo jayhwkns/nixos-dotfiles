@@ -18,15 +18,23 @@
             udev
             SDL2
 
-            # Additional libraries for better compatibility
-            xorg.libXcursor
-            xorg.libXi
-            xorg.libXinerama
-            xorg.libXScrnSaver
-            xorg.libXcomposite
-            xorg.libXdamage
-            xorg.libXrender
-            xorg.libXext
+            # Additional libraries for better compatibility (old names)
+            # xorg.libXcursor
+            libxcursor
+            # xorg.libXi
+            libxi
+            # xorg.libXinerama
+            libxinerama
+            # xorg.libXScrnSaver
+            libxscrnsaver
+            # xorg.libXcomposite
+            libxcomposite
+            # xorg.libXdamage
+            libxdamage
+            # xorg.libXrender
+            libxrender
+            # xorg.libXext
+            libxext
 
             # Fix for Xwayland symbol errors
             libkrb5

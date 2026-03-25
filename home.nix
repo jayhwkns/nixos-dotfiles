@@ -190,8 +190,6 @@ in
     matugen
     gnome-font-viewer
     accountsservice
-    zip
-    unzip
     zellij
     flatpak
     discord
@@ -207,7 +205,7 @@ in
     # For work
     unityhub
     alvr # stream vr to headset
-    android-tools
+    # android-tools
     mtpfs
     gvfs
     vscode
@@ -234,5 +232,11 @@ in
     mesa-demos
     protonup-rs
     kdePackages.filelight
+
+    # archives
+    zip
+    unzip
+    xar
+    p7zip
   ];
 }
