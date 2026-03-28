@@ -205,10 +205,10 @@ in
     # For work
     unityhub
     alvr # stream vr to headset
-    # android-tools
     mtpfs
     gvfs
     vscode
+    lld # linker needed for android builds on Unity
 
     typescript-language-server
     dprint
@@ -238,5 +238,7 @@ in
     unzip
     xar
     p7zip
+
+    blender
   ];
 }

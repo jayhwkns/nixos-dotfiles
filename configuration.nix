@@ -177,6 +177,7 @@ in {
     dotnetCorePackages.sdk_9_0_1xx
     gtk3
     kde-application-menu-fix
+    android-tools
   ];
 }
 
