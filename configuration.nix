@@ -174,7 +174,7 @@ in {
     libsecret
     killall
     usbutils
-    dotnetCorePackages.sdk_9_0_1xx
+    dotnet-sdk_9
     gtk3
     kde-application-menu-fix
     android-tools
