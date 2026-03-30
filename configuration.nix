@@ -2,8 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, lib, pkgs, ... }:
-
+{ pkgs, ... }:
 let
   # Creates a package that symlinks the plasma menu to the standard location
   kde-application-menu-fix = pkgs.runCommandLocal "xdg-application-menu" { } ''
