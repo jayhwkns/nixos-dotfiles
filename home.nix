@@ -240,5 +240,6 @@ in
     p7zip
 
     blender
+    spotify
   ];
 }
