@@ -14,7 +14,6 @@ in {
   [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./steam.nix
-    ./nvidia.nix
     ./portal.nix
   ];
 
@@ -25,7 +24,7 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "rainier";
+  networking.hostName = "tacoma";
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;

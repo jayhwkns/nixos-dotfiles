@@ -102,7 +102,7 @@ output "DP-4" {
     // for the resolution.
     // If the mode is omitted altogether or is invalid, niri will pick one automatically.
     // Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-    mode "1920x1080@144.001"
+    mode "2556x1504@59.999"
 
     // You can use integer or fractional scale, for example use 1.5 for 150% scale.
     scale 1

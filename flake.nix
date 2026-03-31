@@ -25,7 +25,7 @@
 
   outputs = { self, nixpkgs, ... }@inputs:
   {
-    nixosConfigurations.rainier = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.tacoma = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; };
       modules = [
         # System configuration
