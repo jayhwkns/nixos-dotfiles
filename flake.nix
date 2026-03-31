@@ -4,7 +4,7 @@
   # Flake-sourced packages
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-       home-manager = {
+      home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -21,6 +21,7 @@
       url = "github:YaLTeR/niri";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -47,6 +48,8 @@
         }
         # Desktop Shell
         ./noctalia.nix
+        # Framework hardware module
+        inputs.nixos-hardware.nixosModules.framework-13-7040-amd
       ];
     };
   };
