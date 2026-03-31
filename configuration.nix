@@ -15,6 +15,7 @@ in {
     ./hardware-configuration.nix
     ./steam.nix
     ./portal.nix
+    ./laptop.nix
   ];
 
   # Allow unfree packages such as nvidia drivers
