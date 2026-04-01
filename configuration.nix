@@ -177,6 +177,7 @@ in {
     gtk3
     kde-application-menu-fix
     android-tools
+    clang-tools
   ];
 }
 
