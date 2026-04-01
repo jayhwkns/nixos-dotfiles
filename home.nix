@@ -242,5 +242,6 @@ in
     blender
     spotify
     typst
+    libreoffice
   ];
 }
