@@ -1,5 +1,5 @@
 {
-  description = "Flake based configuration for Jay's desktop";
+  description = "Flake based configuration for Jay's desktop and laptop";
 
   # Flake-sourced packages
   inputs = {
@@ -25,9 +25,15 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
+  let
+    # High-level custom settings passed to submodules for easy modification
+    settings = {
+      laptop = true;
+    };
+  in
   {
     nixosConfigurations.tacoma = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+      specialArgs = { inherit inputs; inherit settings; };
       modules = [
         # System configuration
         ./configuration.nix
