@@ -1,10 +1,10 @@
 {
-  description = "Flake based configuration for Jay's desktop";
+  description = "Flake based configuration for Jay's desktop and laptop";
 
   # Flake-sourced packages
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-       home-manager = {
+      home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -21,12 +21,19 @@
       url = "github:YaLTeR/niri";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
+  let
+    # High-level custom settings passed to submodules for easy modification
+    settings = {
+      laptop = true;
+    };
+  in
   {
-    nixosConfigurations.rainier = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
+    nixosConfigurations.tacoma = nixpkgs.lib.nixosSystem {
+      specialArgs = { inherit inputs; inherit settings; };
       modules = [
         # System configuration
         ./configuration.nix
@@ -47,7 +54,10 @@
         }
         # Desktop Shell
         ./noctalia.nix
-      ];
+      ] ++ (if settings.laptop then [
+        # Framework hardware module
+        inputs.nixos-hardware.nixosModules.framework-13-7040-amd
+      ] else []) ;
     };
   };
 }

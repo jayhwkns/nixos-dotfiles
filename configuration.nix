@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ pkgs, ... }:
+{ pkgs, settings, ... }:
 let
   # Creates a package that symlinks the plasma menu to the standard location
   kde-application-menu-fix = pkgs.runCommandLocal "xdg-application-menu" { } ''
@@ -14,18 +14,17 @@ in {
   [ # Include the results of the hardware scan.
     ./hardware-configuration.nix
     ./steam.nix
-    ./nvidia.nix
     ./portal.nix
-  ];
+  ] ++ (if settings.laptop then [./laptop.nix] else []);
 
-  # Allow unfree packages such as nvidia drivers
+    # Allow unfree packages such as nvidia drivers
   nixpkgs.config.allowUnfree = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "rainier";
+  networking.hostName = "tacoma";
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
@@ -177,6 +176,7 @@ in {
     gtk3
     kde-application-menu-fix
     android-tools
+    clang-tools
   ];
 }
 

@@ -63,7 +63,7 @@
                 id = "Network";
               }
               {
-                alwaysShowPercentage = false;
+                alwaysShowPercentage = true;
                 id = "Battery";
                 warningThreshold = 30;
               }
