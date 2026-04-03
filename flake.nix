@@ -28,7 +28,7 @@
   let
     # High-level custom settings passed to submodules for easy modification
     settings = {
-      laptop = true;
+      laptop = false;
     };
   in
   {
