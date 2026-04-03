@@ -54,9 +54,10 @@
         }
         # Desktop Shell
         ./noctalia.nix
+      ] ++ (if settings.laptop then [
         # Framework hardware module
         inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-      ];
+      ] else []) ;
     };
   };
 }
