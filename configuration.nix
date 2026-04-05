@@ -12,7 +12,7 @@ let
 in {
   imports =
   [ # Include the results of the hardware scan.
-    ./hardware-configuration.nix
+    (if settings.laptop then ./hardware/laptop.nix else ./hardware/desktop.nix)
     ./steam.nix
     ./portal.nix
   ] ++ (if settings.laptop then [./laptop.nix] else []);
@@ -24,7 +24,7 @@ in {
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "tacoma";
+  networking.hostName = "rainier";
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;

@@ -32,7 +32,7 @@
     };
   in
   {
-    nixosConfigurations.tacoma = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.rainier = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; inherit settings; };
       modules = [
         # System configuration
