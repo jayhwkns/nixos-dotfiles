@@ -28,11 +28,11 @@
   let
     # High-level custom settings passed to submodules for easy modification
     settings = {
-      laptop = false;
+      laptop = true;
     };
   in
   {
-    nixosConfigurations.rainier = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.tacoma = nixpkgs.lib.nixosSystem {
       specialArgs = { inherit inputs; inherit settings; };
       modules = [
         # System configuration
