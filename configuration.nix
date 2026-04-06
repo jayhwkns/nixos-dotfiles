@@ -106,6 +106,7 @@ in {
 
   system.stateVersion = "25.11";
 
+  services.printing.enable = true;
 
   # Docker
   virtualisation.docker.enable = true;

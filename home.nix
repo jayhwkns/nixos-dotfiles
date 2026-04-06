@@ -243,5 +243,6 @@ in
     spotify
     typst
     libreoffice
+    javaPackages.compiler.temurin-bin.jre-11
   ];
 }
