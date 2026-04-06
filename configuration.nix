@@ -12,10 +12,15 @@ let
 in {
   imports =
   [ # Include the results of the hardware scan.
-    (if settings.laptop then ./hardware/laptop.nix else ./hardware/desktop.nix)
     ./steam.nix
     ./portal.nix
-  ] ++ (if settings.laptop then [./laptop.nix] else []);
+  ] ++ (if settings.laptop then [
+    ./laptop.nix
+    ./hardware/laptop.nix
+  ] else [
+    ./hardware/desktop.nix
+    ./nvidia.nix
+  ]);
 
     # Allow unfree packages such as nvidia drivers
   nixpkgs.config.allowUnfree = true;
