@@ -64,3 +64,7 @@ name = "css"
 language-servers = [ "vscode-css-language-server", "emmet-ls" ]
 formatter = { command = 'prettier', args = ["--parser", "css"] }
 auto-format = true
+
+[[language]]
+name = "typst"
+language-servers = [ "tinymist" ]

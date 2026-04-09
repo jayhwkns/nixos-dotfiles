@@ -92,6 +92,10 @@ in
     ELECTRON_OZONE_PLATFORM_HINT = "auto";
   };
 
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.cargo/bin"
+  ];
+
   programs.git = {
     enable = true;
     settings = {
@@ -108,6 +112,10 @@ in
     };
   };
   
+  programs.cargo = {
+    enable = true;
+  };
+
   programs.fish = {
     enable = true;
     shellInit = /*bash*/ ''
@@ -244,5 +252,7 @@ in
     typst
     libreoffice
     javaPackages.compiler.temurin-bin.jre-11
+    tinymist
+    mpv
   ];
 }
