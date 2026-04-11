@@ -254,5 +254,6 @@ in
     javaPackages.compiler.temurin-bin.jre-11
     tinymist
     mpv
+    amberol
   ];
 }

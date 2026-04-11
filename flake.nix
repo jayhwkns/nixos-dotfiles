@@ -25,39 +25,63 @@
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
-  let
-    # High-level custom settings passed to submodules for easy modification
-    settings = {
-      laptop = true;
-    };
-  in
   {
-    nixosConfigurations.tacoma = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; inherit settings; };
-      modules = [
-        # System configuration
-        ./configuration.nix
-        ./portal.nix
-        # Home Manager
-        inputs.home-manager.nixosModules.home-manager
-        {
-          home-manager = { 
-            useGlobalPkgs = true;
-            useUserPackages = true;
-            users.jay = {
-              imports = [
-                ./home.nix
-              ];
+    nixosConfigurations = {
+      rainier = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          # System configuration
+          ./configuration.nix
+          # Hardware configuration
+          ./hardware/desktop.nix
+          # graphics
+          ./nvidia.nix
+          ./portal.nix
+          # Home Manager
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager = { 
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.jay = {
+                imports = [
+                  ./home.nix
+                ];
+              };
+              backupFileExtension = "backup";
             };
-            backupFileExtension = "backup";
-          };
-        }
-        # Desktop Shell
-        ./noctalia.nix
-      ] ++ (if settings.laptop then [
-        # Framework hardware module
-        inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-      ] else []) ;
+          }
+          # Desktop Shell
+          ./noctalia.nix
+        ];
+      };
+
+      tacoma = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          # System configuration
+          ./configuration.nix
+          ./portal.nix
+          # Home Manager
+          inputs.home-manager.nixosModules.home-manager
+          {
+            home-manager = { 
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.jay = {
+                imports = [
+                  ./home.nix
+                ];
+              };
+              backupFileExtension = "backup";
+            };
+          }
+          # Desktop Shell
+          ./noctalia.nix
+          # Framework hardware module
+          inputs.nixos-hardware.nixosModules.framework-13-7040-amd
+        ];
+      };
     };
   };
 }

@@ -2,7 +2,7 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ pkgs, settings, ... }:
+{ pkgs, ... }:
 let
   # Creates a package that symlinks the plasma menu to the standard location
   kde-application-menu-fix = pkgs.runCommandLocal "xdg-application-menu" { } ''
@@ -14,22 +14,14 @@ in {
   [ # Include the results of the hardware scan.
     ./steam.nix
     ./portal.nix
-  ] ++ (if settings.laptop then [
-    ./laptop.nix
-    ./hardware/laptop.nix
-  ] else [
-    ./hardware/desktop.nix
-    ./nvidia.nix
-  ]);
+  ];
 
-    # Allow unfree packages such as nvidia drivers
+  # Allow unfree packages such as nvidia drivers
   nixpkgs.config.allowUnfree = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  networking.hostName = "tacoma";
 
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
@@ -61,9 +53,6 @@ in {
 
   services.accounts-daemon.enable = true;
   services.flatpak.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jay = {
