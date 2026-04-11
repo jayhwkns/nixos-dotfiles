@@ -254,7 +254,7 @@ in
     javaPackages.compiler.temurin-bin.jre-11
     tinymist
     mpv
-    amberol
+    kdePackages.elisa
 
     font-awesome
     roboto
