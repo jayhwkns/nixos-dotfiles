@@ -3,13 +3,7 @@
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
 { pkgs, ... }:
-let
-  # Creates a package that symlinks the plasma menu to the standard location
-  kde-application-menu-fix = pkgs.runCommandLocal "xdg-application-menu" { } ''
-    mkdir -p $out/etc/xdg/menus/
-    ln -s ${pkgs.kdePackages.plasma-workspace}/etc/xdg/menus/plasma-applications.menu $out/etc/xdg/menus/applications.menu
-  '';
-in {
+{
   imports =
   [ # Include the results of the hardware scan.
     ./steam.nix
@@ -169,7 +163,6 @@ in {
     usbutils
     dotnet-sdk_9
     gtk3
-    kde-application-menu-fix
     android-tools
     clang-tools
   ];
