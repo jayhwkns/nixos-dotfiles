@@ -255,5 +255,10 @@ in
     tinymist
     mpv
     amberol
+
+    font-awesome
+    roboto
+    source-sans-pro
+    source-sans
   ];
 }
