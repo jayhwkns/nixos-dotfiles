@@ -6,10 +6,16 @@
 - Runner: Anyrun
 - Gaming Support
 
-## Reference Dotfiles
+## Host-Based Configuration
 
-Nix is so archaic to me, so a lot of reference material was used
+Rainier is my desktop.
 
-- [mikuri12](https://github.com/mikuri12/my-nixos-config)
-- [viitorags](https://github.com/viitorags/nixdots)
-- [BlackDonOS](https://gitlab.com/theblackdon/black-don-os)
+```bash
+sudo nixos-rebuild switch --flake .#rainier
+```
+
+Tacoma is my framework 13 AMD laptop.
+
+```bash
+sudo nixos-rebuild switch --flake .#tacoma
+```
