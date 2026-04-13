@@ -255,6 +255,7 @@ in
     tinymist
     mpv
     kdePackages.elisa
+    spotube
 
     font-awesome
     roboto
