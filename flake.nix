@@ -66,6 +66,7 @@
           # Hardware configuration
           ./hardware/laptop.nix
           ./portal.nix
+          ./laptop.nix
           # Home Manager
           inputs.home-manager.nixosModules.home-manager
           {
