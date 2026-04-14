@@ -261,5 +261,6 @@ in
     roboto
     source-sans-pro
     source-sans
+    typos
   ];
 }
