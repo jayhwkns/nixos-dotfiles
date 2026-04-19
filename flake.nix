@@ -32,6 +32,7 @@
         modules = [
           # System configuration
           ./configuration.nix
+          ./hosts/rainier.nix
           # Hardware configuration
           ./hardware/desktop.nix
           # graphics
@@ -61,6 +62,7 @@
         modules = [
           # System configuration
           ./configuration.nix
+          ./hosts/tacoma.nix
           # Hardware configuration
           ./hardware/laptop.nix
           ./portal.nix
