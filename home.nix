@@ -96,6 +96,11 @@ in
     "${config.home.homeDirectory}/.cargo/bin"
   ];
 
+  imports = [
+    # Syncthing for music
+    ./syncthing.nix
+  ];
+
   programs.git = {
     enable = true;
     settings = {

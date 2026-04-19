@@ -4,8 +4,7 @@
 
 { pkgs, ... }:
 {
-  imports =
-  [ # Include the results of the hardware scan.
+  imports = [ 
     ./steam.nix
     ./portal.nix
   ];
@@ -84,9 +83,12 @@
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
+    22000 # synchthing
     57621 # spotify sync
   ];
   networking.firewall.allowedUDPPorts = [
+    22000 # synchthing
+    21027 # syncthing discovery
     5353 # spotify sync
   ];
   # Or disable the firewall altogether.

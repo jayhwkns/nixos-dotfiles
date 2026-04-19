@@ -53,8 +53,6 @@
           }
           # Desktop Shell
           ./noctalia.nix
-          # Syncthing for music
-          ./syncthing.nix
         ];
       };
 
@@ -85,8 +83,6 @@
           ./noctalia.nix
           # Framework hardware module
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
-          # Syncthing for music
-          ./syncthing.nix
         ];
       };
     };
