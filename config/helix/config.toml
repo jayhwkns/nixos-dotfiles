@@ -1,4 +1,5 @@
 theme = "ferra"
+# theme = "iceberg-light"
 
 [editor]
 line-number = "relative"

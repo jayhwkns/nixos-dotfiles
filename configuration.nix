@@ -151,6 +151,7 @@
     cargo
     rustc
     rust-analyzer
+    clippy
     
     pkg-config
     gdk-pixbuf

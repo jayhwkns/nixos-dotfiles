@@ -156,6 +156,7 @@ in
   };
 
   gtk.gtk3.iconTheme = "Papirus-Dark";
+  gtk.gtk4.iconTheme = "Papirus-Dark";
 
   services.udiskie = {
     enable = true;
