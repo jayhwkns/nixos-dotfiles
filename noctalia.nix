@@ -25,14 +25,18 @@
                 hideUnoccupied = false;
                 id = "Workspace";
                 labelMode = "index";
+                showApplications = true;
+                iconScale = 1.0;
               }
               {
                 id = "MediaMini";
+                maxWidth = 250;
+                useFixedWith = true;
               }
             ];
             center = [
               {
-                formatHorizontal = "HH:mm";
+                formatHorizontal = "HH:mm ddd, MMM dd";
                 formatVertical = "HH mm";
                 id = "Clock";
                 useMonospacedFont = true;
@@ -79,6 +83,23 @@
           useWallpaperColors = true;
           generationMethod = "muted";
           schedulingMode = "location";
+        };
+        templates = {
+          activeTemplates = [
+            {
+              enabled =  true;
+              id = "alacritty";
+            }
+            {
+              enabled = true;
+              id =  "gtk";
+            }
+            {
+              enabled = true;
+              id = "kcolorscheme";
+            }
+          ];
+          enableUserTheming = false;
         };
         nightLight = {
           enabled = true;
