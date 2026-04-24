@@ -1,8 +1,8 @@
 [general]
-import = ["~/.config/alacritty/themes/noctalia.toml"]
+import = ["~/.config/alacritty/themes/spacehawk-dark.toml"]
 
 [window]
-opacity = 0.9
+opacity = 0.98
 padding = {x = 10, y = 10}
 decorations = "None"
 

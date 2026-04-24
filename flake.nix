@@ -4,7 +4,7 @@
   # Flake-sourced packages
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-      home-manager = {
+    home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -22,14 +22,20 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, stylix, ... }@inputs:
   {
     nixosConfigurations = {
       rainier = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
+          # Styling
+          stylix.nixosModules.stylix
           # System configuration
           ./configuration.nix
           ./hosts/rainier.nix
@@ -60,6 +66,8 @@
       tacoma = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
+          # Styling
+          stylix.nixosModules.stylix
           # System configuration
           ./configuration.nix
           ./hosts/tacoma.nix

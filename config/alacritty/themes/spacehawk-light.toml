@@ -1,0 +1,58 @@
+[colors.primary]
+background = '#e6e6e6'
+foreground = '#191616'
+
+[colors.cursor]
+text = '#191616'
+cursor = '#3c3a3a'
+
+[colors.vi_mode_cursor]
+text = '#e6e6e6'
+cursor = '#c7c7c7'
+
+[colors.search.matches]
+foreground = '#c7c7c7' 
+background = '#1c1c1c' 
+
+[colors.search.focused_match]
+foreground = '#c7c7c7' 
+background = '#1c1c1c' 
+
+[colors.footer_bar]
+foreground = '#c7c7c7' 
+background = '#282424' 
+ 
+[colors.hints.start]
+foreground = '#c7c7c7' 
+background = '#1c1c1c' 
+ 
+[colors.hints.end]
+foreground = '#c7c7c7' 
+background = '#1c1c1c' 
+
+[colors.selection]
+text = '#e6e6e6'
+background = '#3c3a3a'
+
+[colors.normal]
+black = '#c7c7c7'
+red = '#b60109'
+green = '#61ad46'
+yellow = '#f59714'
+blue = '#3b7cbc'
+magenta = '#be9cc1'
+cyan = '#72bfb2'
+white = '#c5c8c6'
+
+# A little backwards. We'll say "bright" means more contrast against
+# the background, which in this case will mean dark.
+[colors.bright]
+black = '#3c3a3a'
+red = '#f64137'
+green = '#90dd78'
+yellow = '#fcd248'
+blue = '#508dc9'
+magenta = '#c4b4cc'
+cyan = '#94e2d5'
+white = '#707880'
+ 

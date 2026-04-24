@@ -10,10 +10,10 @@ let
     zellij = "zellij";
   };
   anyrunCss = /*css*/ ''
-      @define-color accent #8ea4a2;
-      @define-color bg-color #181616;
-      @define-color fg-color #c5c9c5;
-      @define-color desc-color #a6a69c;
+      @define-color accent #df7d00;
+      @define-color bg-color #191616;
+      @define-color fg-color #e6e6e6;
+      @define-color desc-color #c7c7c7;
 
       window {
         background: transparent;
@@ -155,8 +155,7 @@ in
     extraCss = anyrunCss;
   };
 
-  gtk.gtk3.iconTheme = "Papirus-Dark";
-  gtk.gtk4.iconTheme = "Papirus-Dark";
+  stylix.targets.noctalia-shell.enable = true;
 
   services.udiskie = {
     enable = true;

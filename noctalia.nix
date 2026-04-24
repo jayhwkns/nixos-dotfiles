@@ -1,7 +1,6 @@
 { pkgs, inputs, ... }:
 {
   home-manager.users.jay = {
-    # import the home manager module
     imports = [
       inputs.noctalia.homeModules.default
     ];
@@ -9,11 +8,9 @@
       inputs.noctalia-qs.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
-    # configure options
     programs.noctalia-shell = {
       enable = true;
       settings = {
-        # configure noctalia here
         bar = {
           density = "compact";
           position = "top";
@@ -80,27 +77,27 @@
           };
         };
         colorSchemes = {
-          useWallpaperColors = true;
+          useWallpaperColors = false;
           generationMethod = "muted";
           schedulingMode = "location";
         };
-        templates = {
-          activeTemplates = [
-            {
-              enabled =  true;
-              id = "alacritty";
-            }
-            {
-              enabled = true;
-              id =  "gtk";
-            }
-            {
-              enabled = true;
-              id = "kcolorscheme";
-            }
-          ];
-          enableUserTheming = false;
-        };
+        # templates = {
+        #   activeTemplates = [
+        #     {
+        #       enabled =  true;
+        #       id = "alacritty";
+        #     }
+        #     {
+        #       enabled = true;
+        #       id =  "gtk";
+        #     }
+        #     {
+        #       enabled = true;
+        #       id = "kcolorscheme";
+        #     }
+        #   ];
+        #   enableUserTheming = false;
+        # };
         nightLight = {
           enabled = true;
           autoSchedule = true;
