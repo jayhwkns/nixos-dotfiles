@@ -1,4 +1,4 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, ... }:
 {
   home-manager.users.jay = {
     imports = [
@@ -16,6 +16,8 @@
           position = "top";
           showCapsule = false;
           contentPadding = 4;
+          useSeparateOpacity = true;
+          backgroundOpacity = lib.mkForce 0;
           widgets = {
             left = [
               {
@@ -51,9 +53,6 @@
                 id = "NotificationHistory";
                 maximumWidth = "312";
               }
-              # {
-              #   id = "Brightness";
-              # }
               {
                 id = "Bluetooth";
               }
@@ -78,26 +77,9 @@
         };
         colorSchemes = {
           useWallpaperColors = false;
-          generationMethod = "muted";
           schedulingMode = "location";
+          syncGsettings = true;
         };
-        # templates = {
-        #   activeTemplates = [
-        #     {
-        #       enabled =  true;
-        #       id = "alacritty";
-        #     }
-        #     {
-        #       enabled = true;
-        #       id =  "gtk";
-        #     }
-        #     {
-        #       enabled = true;
-        #       id = "kcolorscheme";
-        #     }
-        #   ];
-        #   enableUserTheming = false;
-        # };
         nightLight = {
           enabled = true;
           autoSchedule = true;

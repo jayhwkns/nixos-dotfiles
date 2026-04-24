@@ -8,11 +8,11 @@
       # spacehawk dark
       base00 = "191616"; # Default Background
       base01 = "2f2a2c"; # Lighter background
-      base02 = "3c3a3a"; # Selection Background
+      base02 = "94e2d5"; # Selection Background
       base03 = "707880"; # Comments
-      base04 = "373b41"; # Dark Foreground
+      base04 = "c7c7c7"; # Dark Foreground
       base05 = "e7e7e7"; # Default Foreground
-      base06 = "3c3a3a"; # Light Foreground
+      base06 = "f0f0f0"; # Light Foreground
       base07 = "383436"; # Light background
       base08 = "df7d00"; # Variables
       base09 = "be9cc1"; # Integers, booleans, constants
