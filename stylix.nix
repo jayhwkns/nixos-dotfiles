@@ -49,6 +49,9 @@
     # Only specify system-wide config here, otherwise put in home.nix
     targets = {
       fish.enable = true;
+      gnome.enable = true;
+      qt.enable = true;
+      console.enable = true;
     };
   };
 }

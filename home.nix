@@ -155,7 +155,13 @@ in
     extraCss = anyrunCss;
   };
 
-  stylix.targets.noctalia-shell.enable = true;
+  stylix.targets = {
+    noctalia-shell.enable = true;
+    zellij.enable = true;
+    kde.enable = true;
+    starship.enable = true;
+    blender.enable = true;
+  };
 
   services.udiskie = {
     enable = true;
