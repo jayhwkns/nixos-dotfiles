@@ -78,7 +78,6 @@
       montserrat
       nerd-fonts.liberation
       nerd-fonts.victor-mono
-      nerd-fonts.victor-mono
     ];
 
     fontconfig = {
