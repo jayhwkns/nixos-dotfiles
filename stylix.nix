@@ -8,7 +8,7 @@
     fonts = {
       serif = {
         package = pkgs.nerd-fonts.liberation;
-        name = "Liberation Serif";
+        name = "FreeSerif";
       };
 
       sansSerif = {
@@ -17,7 +17,7 @@
       };
 
       monospace = {
-        package = pkgs.nerd-fonts.victor-mono;
+        package = pkgs.victor-mono;
         name = "VictorMono NF";
       };
 

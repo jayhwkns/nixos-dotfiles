@@ -73,23 +73,22 @@
     DISPLAY = "0";
   };
 
-  # fonts = {
-  #   packages = with pkgs; [
-  #     montserrat
-  #     nerd-fonts.liberation
-  #     nerd-fonts.jetbrains-mono
-  #     victor-mono
-  #     nerd-fonts.victor-mono
-  #   ];
+  fonts = {
+    packages = with pkgs; [
+      montserrat
+      nerd-fonts.liberation
+      nerd-fonts.victor-mono
+      nerd-fonts.victor-mono
+    ];
 
-  #   fontconfig = {
-  #     defaultFonts = {
-  #       serif = [ "FreeSerif" ];
-  #       sansSerif = [ "Montserrat Light" ];
-  #       monospace = [ "VictorMono NF" ];
-  #     };
-  #   };
-  # };
+    fontconfig = {
+      defaultFonts = {
+        serif = [ "FreeSerif" ];
+        sansSerif = [ "Montserrat Light" ];
+        monospace = [ "VictorMono NF" ];
+      };
+    };
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
