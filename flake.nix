@@ -37,13 +37,10 @@
           # Styling
           stylix.nixosModules.stylix
           # System configuration
-          ./configuration.nix
+          ./system/configuration.nix
           ./hosts/rainier.nix
           # Hardware configuration
           ./hardware/desktop.nix
-          # graphics
-          ./nvidia.nix
-          ./portal.nix
           # Home Manager
           inputs.home-manager.nixosModules.home-manager
           {
@@ -52,14 +49,12 @@
               useUserPackages = true;
               users.jay = {
                 imports = [
-                  ./home.nix
+                  ./home/home.nix
                 ];
               };
               backupFileExtension = "backup";
             };
           }
-          # Desktop Shell
-          ./noctalia.nix
         ];
       };
 
@@ -69,11 +64,10 @@
           # Styling
           stylix.nixosModules.stylix
           # System configuration
-          ./configuration.nix
+          ./system/configuration.nix
           ./hosts/tacoma.nix
           # Hardware configuration
           ./hardware/laptop.nix
-          ./portal.nix
           ./laptop.nix
           # Home Manager
           inputs.home-manager.nixosModules.home-manager
@@ -83,14 +77,12 @@
               useUserPackages = true;
               users.jay = {
                 imports = [
-                  ./home.nix
+                  ./home/home.nix
                 ];
               };
               backupFileExtension = "backup";
             };
           }
-          # Desktop Shell
-          ./noctalia.nix
           # Framework hardware module
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
         ];

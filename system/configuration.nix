@@ -8,6 +8,11 @@
     ./steam.nix
     ./portal.nix
     ./stylix.nix
+    # Desktop Shell
+    ./noctalia.nix
+    # graphics
+    ./nvidia.nix
+    ./portal.nix
   ];
 
   # Allow unfree packages such as nvidia drivers
