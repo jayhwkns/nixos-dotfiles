@@ -169,9 +169,6 @@
     clippy
     
     pkg-config
-    gdk-pixbuf
-    pango
-    cairo
     xwayland-satellite
     xrandr
     fish
@@ -179,9 +176,6 @@
     libsecret
     killall
     usbutils
-    dotnet-sdk_9
-    gtk3
-    android-tools
     clang-tools
   ];
 }

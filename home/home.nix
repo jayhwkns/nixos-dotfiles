@@ -122,19 +122,11 @@ in
     # process viewer
     bottom
     bibata-cursors
-    papirus-icon-theme
     steam
-    # helps steam run fullscreen games without goofiness
-    gamescope
-    vlc
 
-    # For work
-    unityhub
-    alvr # stream vr to headset
-    mtpfs
-    gvfs
-    vscode
-    lld # linker needed for android builds on Unity
+    # media
+    vlc
+    imv
 
     typescript-language-server
     dprint
@@ -155,15 +147,12 @@ in
     # for pause/play/skip
     playerctl
 
-    mesa-demos
     protonup-rs
     kdePackages.filelight
 
     # archives
     zip
     unzip
-    xar
-    p7zip
 
     blender
     spotify
