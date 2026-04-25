@@ -7,6 +7,12 @@
   imports = [ 
     ./steam.nix
     ./portal.nix
+    ./stylix.nix
+    # Desktop Shell
+    ./noctalia.nix
+    # graphics
+    ./nvidia.nix
+    ./portal.nix
   ];
 
   # Allow unfree packages such as nvidia drivers
@@ -76,8 +82,6 @@
     packages = with pkgs; [
       montserrat
       nerd-fonts.liberation
-      nerd-fonts.jetbrains-mono
-      victor-mono
       nerd-fonts.victor-mono
     ];
 
@@ -153,7 +157,7 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     helix
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    vim
     wget
     git
     alacritty
@@ -165,9 +169,6 @@
     clippy
     
     pkg-config
-    gdk-pixbuf
-    pango
-    cairo
     xwayland-satellite
     xrandr
     fish
@@ -175,9 +176,6 @@
     libsecret
     killall
     usbutils
-    dotnet-sdk_9
-    gtk3
-    android-tools
     clang-tools
   ];
 }

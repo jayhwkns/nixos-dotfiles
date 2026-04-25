@@ -1,7 +1,6 @@
-{ pkgs, inputs, ... }:
+{ pkgs, inputs, lib, ... }:
 {
   home-manager.users.jay = {
-    # import the home manager module
     imports = [
       inputs.noctalia.homeModules.default
     ];
@@ -9,16 +8,16 @@
       inputs.noctalia-qs.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
 
-    # configure options
     programs.noctalia-shell = {
       enable = true;
       settings = {
-        # configure noctalia here
         bar = {
           density = "compact";
           position = "top";
           showCapsule = false;
           contentPadding = 4;
+          useSeparateOpacity = true;
+          backgroundOpacity = lib.mkForce 0;
           widgets = {
             left = [
               {
@@ -54,9 +53,6 @@
                 id = "NotificationHistory";
                 maximumWidth = "312";
               }
-              # {
-              #   id = "Brightness";
-              # }
               {
                 id = "Bluetooth";
               }
@@ -80,26 +76,9 @@
           };
         };
         colorSchemes = {
-          useWallpaperColors = true;
-          generationMethod = "muted";
+          useWallpaperColors = false;
           schedulingMode = "location";
-        };
-        templates = {
-          activeTemplates = [
-            {
-              enabled =  true;
-              id = "alacritty";
-            }
-            {
-              enabled = true;
-              id =  "gtk";
-            }
-            {
-              enabled = true;
-              id = "kcolorscheme";
-            }
-          ];
-          enableUserTheming = false;
+          syncGsettings = true;
         };
         nightLight = {
           enabled = true;

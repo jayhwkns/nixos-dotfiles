@@ -4,7 +4,7 @@
   # Flake-sourced packages
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-      home-manager = {
+    home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -22,22 +22,25 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    stylix = {
+      url = "github:nix-community/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }@inputs:
+  outputs = { self, nixpkgs, stylix, ... }@inputs:
   {
     nixosConfigurations = {
       rainier = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
+          # Styling
+          stylix.nixosModules.stylix
           # System configuration
-          ./configuration.nix
+          ./system/configuration.nix
           ./hosts/rainier.nix
           # Hardware configuration
           ./hardware/desktop.nix
-          # graphics
-          ./nvidia.nix
-          ./portal.nix
           # Home Manager
           inputs.home-manager.nixosModules.home-manager
           {
@@ -46,26 +49,25 @@
               useUserPackages = true;
               users.jay = {
                 imports = [
-                  ./home.nix
+                  ./home/home.nix
                 ];
               };
               backupFileExtension = "backup";
             };
           }
-          # Desktop Shell
-          ./noctalia.nix
         ];
       };
 
       tacoma = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         modules = [
+          # Styling
+          stylix.nixosModules.stylix
           # System configuration
-          ./configuration.nix
+          ./system/configuration.nix
           ./hosts/tacoma.nix
           # Hardware configuration
           ./hardware/laptop.nix
-          ./portal.nix
           ./laptop.nix
           # Home Manager
           inputs.home-manager.nixosModules.home-manager
@@ -75,14 +77,12 @@
               useUserPackages = true;
               users.jay = {
                 imports = [
-                  ./home.nix
+                  ./home/home.nix
                 ];
               };
               backupFileExtension = "backup";
             };
           }
-          # Desktop Shell
-          ./noctalia.nix
           # Framework hardware module
           inputs.nixos-hardware.nixosModules.framework-13-7040-amd
         ];

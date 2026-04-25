@@ -1,5 +1,4 @@
 { config, pkgs, ... }:
-
 let
   dotfiles = "${config.home.homeDirectory}/nixos-dotfiles/config";
   create_symlink = path: config.lib.file.mkOutOfStoreSymlink path;
@@ -9,78 +8,6 @@ let
     helix = "helix";
     zellij = "zellij";
   };
-  anyrunCss = /*css*/ ''
-      @define-color accent #8ea4a2;
-      @define-color bg-color #181616;
-      @define-color fg-color #c5c9c5;
-      @define-color desc-color #a6a69c;
-
-      window {
-        background: transparent;
-      }
-
-      box.main {
-        padding: 5px;
-        margin: 10px;
-        border-radius: 0;
-        border: 2px solid @accent;
-        background-color: rgba(24, 22, 22, 0.85);
-        box-shadow: 0 0 5px black;
-      }
-
-
-      text {
-        min-height: 30px;
-        padding: 5px;
-        border-radius: 0;
-        color: @fg-color;
-        font-family: "VictorMono NF";
-      }
-
-      .matches {
-        background-color: rgba(0, 0, 0, 0);
-        border-radius: 10px;
-      }
-
-      box, list, label {
-        font-family: "VictorMono NF";
-      }
-
-      box.plugin:first-child {
-        margin-top: 5px;
-      }
-
-      box.plugin.info {
-        min-width: 200px;
-      }
-
-      list.plugin {
-        background-color: rgba(0, 0, 0, 0);
-      }
-
-      label.match {
-        color: @fg-color;
-      }
-
-      label.match.description {
-        font-size: 10px;
-        color: @desc-color;
-      }
-
-      label.plugin.info {
-        font-size: 14px;
-        color: @fg-color;
-      }
-
-      .match {
-        background: transparent;
-      }
-
-      .match:selected {
-        border-left: 4px solid @accent;
-        background: transparent;
-      }
-    '';
 in
 {
   home.username = "jay";
@@ -99,6 +26,7 @@ in
   imports = [
     # Syncthing for music
     ./syncthing.nix
+    ./anyrun.nix
   ];
 
   programs.git = {
@@ -133,30 +61,14 @@ in
     };
   };
 
-  programs.anyrun = {
-    enable = true;
-    config = {
-      x = { fraction = 0.5; };
-      y = { fraction = 0.3; };
-      width = { fraction = 0.45; };
-      hideIcons = false;
-      ignoreExclusiveZones = false;
-      layer = "overlay";
-      hidePluginInfo = false;
-      closeOnClick = false;
-      showResultsImmediately = false;
-      maxEntries = null;
 
-      plugins = [
-        "${pkgs.anyrun}/lib/libapplications.so"
-        "${pkgs.anyrun}/lib/libsymbols.so"
-      ];
-    };
-    extraCss = anyrunCss;
+  stylix.targets = {
+    noctalia-shell.enable = true;
+    zellij.enable = true;
+    kde.enable = true;
+    starship.enable = true;
+    blender.enable = true;
   };
-
-  gtk.gtk3.iconTheme = "Papirus-Dark";
-  gtk.gtk4.iconTheme = "Papirus-Dark";
 
   services.udiskie = {
     enable = true;
@@ -210,19 +122,11 @@ in
     # process viewer
     bottom
     bibata-cursors
-    papirus-icon-theme
     steam
-    # helps steam run fullscreen games without goofiness
-    gamescope
-    vlc
 
-    # For work
-    unityhub
-    alvr # stream vr to headset
-    mtpfs
-    gvfs
-    vscode
-    lld # linker needed for android builds on Unity
+    # media
+    vlc
+    imv
 
     typescript-language-server
     dprint
@@ -243,15 +147,12 @@ in
     # for pause/play/skip
     playerctl
 
-    mesa-demos
     protonup-rs
     kdePackages.filelight
 
     # archives
     zip
     unzip
-    xar
-    p7zip
 
     blender
     spotify
