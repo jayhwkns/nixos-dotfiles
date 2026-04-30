@@ -177,6 +177,12 @@
     killall
     usbutils
     clang-tools
+
+    # media
+    vlc
+    libvlc
+    imv
+    ffmpeg
   ];
 }
 

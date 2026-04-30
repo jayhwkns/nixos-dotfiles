@@ -124,10 +124,6 @@ in
     bibata-cursors
     steam
 
-    # media
-    vlc
-    imv
-
     typescript-language-server
     dprint
     vscode-json-languageserver
