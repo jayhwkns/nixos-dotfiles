@@ -1,4 +1,4 @@
-{ pkgs, inputs, lib, ... }:
+{ pkgs, inputs, lib, colors, ... }:
 {
   home-manager.users.jay = {
     imports = [
@@ -10,6 +10,25 @@
 
     programs.noctalia-shell = {
       enable = true;
+      colors = with colors.spacehawk_deep; {
+        # you must set ALL of these
+        mError = "#${nasa_red}";
+        mOnError = "#${white}";
+        mOnPrimary = "#${white}";
+        mOnSecondary = "#${white}";
+        mOnSurface = "#${fuselage}";
+        mOnSurfaceVariant = "#${light_fuselage}";
+        mOnTertiary = "#${light_fuselage}";
+        mOnHover = "#${white}";
+        mOutline = "#${heatshield}";
+        mPrimary = "#${shuttle}";
+        mSecondary = "#${andromeda}";
+        mShadow = "#${black}";
+        mSurface = "#${heatshield}";
+        mHover = "#${plume}";
+        mSurfaceVariant = "#${light_heatshield}";
+        mTertiary = "#${atmosphere}";
+      };
       settings = {
         bar = {
           density = "compact";

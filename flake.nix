@@ -32,7 +32,10 @@
   {
     nixosConfigurations = {
       rainier = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs;
+          colors = import ./colors.nix;
+        };
         modules = [
           # Styling
           stylix.nixosModules.stylix
@@ -59,7 +62,10 @@
       };
 
       tacoma = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit inputs; };
+        specialArgs = {
+          inherit inputs;
+          colors = import ./colors.nix;
+        };
         modules = [
           # Styling
           stylix.nixosModules.stylix

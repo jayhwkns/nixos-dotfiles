@@ -1,27 +1,33 @@
-{ pkgs, ... }:
+{ pkgs, colors, ... }:
 {
   stylix = {
     enable = true;
     autoEnable = false;
-    # base16Scheme = "${pkgs.base16-schemes}/share/themes/spacemacs.yaml";
-    base16Scheme = {
-      # spacehawk dark
-      base00 = "191616"; # Default Background
-      base01 = "2f2a2c"; # Lighter background
-      base02 = "94e2d5"; # Selection Background
-      base03 = "707880"; # Comments
-      base04 = "c7c7c7"; # Dark Foreground
-      base05 = "e7e7e7"; # Default Foreground
-      base06 = "f0f0f0"; # Light Foreground
-      base07 = "383436"; # Light background
-      base08 = "df7d00"; # Variables
-      base09 = "be9cc1"; # Integers, booleans, constants
-      base0A = "f64137"; # Classes, bold
-      base0B = "61ad46"; # Strings
-      base0C = "90dd78"; # Regex, escape characters
-      base0D = "f9b955"; # Functions
-      base0E = "b60109"; # Keywords
-      base0F = "3b7cbc"; # Misc
+    base16Scheme = with colors.spacehawk_deep; {
+      base00 = heatshield;
+      base01 = light_heatshield;
+      base02 = plume;
+      base03 = spacecraft;
+      base04 = light_spacecraft;
+      base05 = fuselage;
+      base06 = light_fuselage;
+      base07 = white;
+      base08 = nasa_red;
+      base09 = mars;
+      base0A = shuttle;
+      base0B = earth;
+      base0C = atmosphere;
+      base0D = ocean;
+      base0E = andromeda;
+      base0F = lem;
+      base10 = dark_heatshield;
+      base11 = black;
+      base12 = light_nasa_red;
+      base13 = light_shuttle;
+      base14 = light_earth;
+      base15 = light_atmosphere;
+      base16 = light_ocean;
+      base17 = light_andromeda;
     };
 
     fonts = {

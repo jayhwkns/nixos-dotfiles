@@ -63,7 +63,7 @@ in
 
 
   stylix.targets = {
-    noctalia-shell.enable = true;
+    # noctalia-shell.enable = true;
     zellij.enable = true;
     kde.enable = true;
     starship.enable = true;
