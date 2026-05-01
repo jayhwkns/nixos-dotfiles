@@ -37,8 +37,8 @@
       };
 
       sansSerif = {
-        package = pkgs.montserrat;
-        name = "Montserrat Light";
+        package = pkgs.public-sans;
+        name = "Public Sans";
       };
 
       monospace = {

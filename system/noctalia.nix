@@ -11,16 +11,15 @@
     programs.noctalia-shell = {
       enable = true;
       colors = with colors.spacehawk_deep; {
-        # you must set ALL of these
         mError = "#${nasa_red}";
         mOnError = "#${white}";
         mOnPrimary = "#${white}";
         mOnSecondary = "#${white}";
         mOnSurface = "#${fuselage}";
-        mOnSurfaceVariant = "#${light_fuselage}";
-        mOnTertiary = "#${light_fuselage}";
+        mOnSurfaceVariant = "#${spacecraft}";
+        mOnTertiary = "#${heatshield}";
         mOnHover = "#${white}";
-        mOutline = "#${heatshield}";
+        mOutline = "#${plume}";
         mPrimary = "#${shuttle}";
         mSecondary = "#${andromeda}";
         mShadow = "#${black}";

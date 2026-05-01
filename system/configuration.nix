@@ -83,12 +83,13 @@
       montserrat
       nerd-fonts.liberation
       nerd-fonts.victor-mono
+      public-sans
     ];
 
     fontconfig = {
       defaultFonts = {
         serif = [ "FreeSerif" ];
-        sansSerif = [ "Montserrat Light" ];
+        sansSerif = [ "Public Sans" ];
         monospace = [ "VictorMono NF" ];
       };
     };
