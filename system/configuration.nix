@@ -162,6 +162,7 @@
     wget
     git
     alacritty
+    openssl
 
     # Rust
     cargo
