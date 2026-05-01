@@ -151,12 +151,10 @@ in
     unzip
 
     blender
-    spotify
     typst
     libreoffice
     javaPackages.compiler.temurin-bin.jre-11
     tinymist
-    mpv
     kdePackages.elisa
     spotube
 
