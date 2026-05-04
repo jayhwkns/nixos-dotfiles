@@ -119,6 +119,7 @@ in
     zellij
     flatpak
     discord
+    joplin-desktop
     # process viewer
     bottom
     bibata-cursors
