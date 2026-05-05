@@ -120,6 +120,7 @@ in
     flatpak
     discord
     joplin-desktop
+    freecad
     # process viewer
     bottom
     bibata-cursors
