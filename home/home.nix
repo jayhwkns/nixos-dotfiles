@@ -27,6 +27,7 @@ in
     # Syncthing for music
     ./syncthing.nix
     ./anyrun.nix
+    ./emulation.nix
   ];
 
   programs.git = {
@@ -151,6 +152,7 @@ in
     # archives
     zip
     unzip
+    p7zip
 
     blender
     typst
