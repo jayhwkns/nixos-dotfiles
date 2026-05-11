@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
     (retroarch.withCores (cores: with cores; [
       beetle-psx-hw
+      dolphin
     ]))
   ];
 }

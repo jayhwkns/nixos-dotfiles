@@ -167,5 +167,6 @@ in
     source-sans-pro
     source-sans
     typos
+    anki
   ];
 }
