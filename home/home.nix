@@ -142,12 +142,13 @@ in
     kdePackages.dolphin
     kdePackages.kio
     kdePackages.kio-extras
+    kdePackages.filelight
+    kdePackages.kdenlive
 
     # for pause/play/skip
     playerctl
 
     protonup-rs
-    kdePackages.filelight
 
     # archives
     zip

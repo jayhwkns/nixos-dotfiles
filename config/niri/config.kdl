@@ -664,6 +664,12 @@ window-rule {
     default-floating-position x=10 y=10 relative-to="bottom-right"
 }
 
+// Make Stremio, RetroArch, and its games fullscreen so I don't have to walk to my keyboard to fix :/
+window-rule {
+    match title="RetroArch|Stremio"
+    open-fullscreen true
+}
+
 debug {
   // Allows notification actions and window activation from Noctalia.
   honor-xdg-activation-with-invalid-serial
