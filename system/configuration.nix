@@ -182,6 +182,7 @@
     libvlc
     imv
     ffmpeg
+    android-tools
   ];
 }
 
