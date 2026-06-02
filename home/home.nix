@@ -110,7 +110,6 @@ in
     nixpkgs-fmt
     nodejs
     anyrun
-    gcc
     cava
     cliphist
     wl-clipboard

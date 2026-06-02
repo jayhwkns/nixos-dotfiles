@@ -160,6 +160,8 @@
     git
     alacritty
     openssl
+    gnumake
+    gcc
 
     # Rust
     cargo
