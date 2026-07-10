@@ -118,7 +118,8 @@ in
     accountsservice
     zellij
     flatpak
-    discord
+    # discord
+    vesktop # discord alternative
     joplin-desktop
     freecad
     # process viewer

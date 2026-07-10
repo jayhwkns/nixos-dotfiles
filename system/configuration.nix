@@ -24,6 +24,9 @@
   # Configure network connections interactively with nmcli or nmtui.
   networking.networkmanager.enable = true;
 
+  # Supposedly fixes trackpad
+  services.xserver.synaptics.enable = true;
+
   # Set your time zone.
   time.timeZone = "America/New_York";
 

@@ -4,31 +4,28 @@
     imports = [
       inputs.noctalia.homeModules.default
     ];
-    home.packages = [
-      inputs.noctalia-qs.packages.${pkgs.stdenv.hostPlatform.system}.default
-    ];
 
-    programs.noctalia-shell = {
+    programs.noctalia = {
       enable = true;
-      colors = with colors.spacehawk_deep; {
-        mError = "#${nasa_red}";
-        mOnError = "#${white}";
-        mOnPrimary = "#${white}";
-        mOnSecondary = "#${white}";
-        mOnSurface = "#${fuselage}";
-        mOnSurfaceVariant = "#${spacecraft}";
-        mOnTertiary = "#${heatshield}";
-        mOnHover = "#${white}";
-        mOutline = "#${plume}";
-        mPrimary = "#${shuttle}";
-        mSecondary = "#${andromeda}";
-        mShadow = "#${black}";
-        mSurface = "#${heatshield}";
-        mHover = "#${plume}";
-        mSurfaceVariant = "#${light_heatshield}";
-        mTertiary = "#${atmosphere}";
-      };
       settings = {
+        colors = with colors.spacehawk_deep; {
+          mError = "#${nasa_red}";
+          mOnError = "#${white}";
+          mOnPrimary = "#${white}";
+          mOnSecondary = "#${white}";
+          mOnSurface = "#${fuselage}";
+          mOnSurfaceVariant = "#${spacecraft}";
+          mOnTertiary = "#${heatshield}";
+          mOnHover = "#${white}";
+          mOutline = "#${plume}";
+          mPrimary = "#${shuttle}";
+          mSecondary = "#${andromeda}";
+          mShadow = "#${black}";
+          mSurface = "#${heatshield}";
+          mHover = "#${plume}";
+          mSurfaceVariant = "#${light_heatshield}";
+          mTertiary = "#${atmosphere}";
+        };
         bar = {
           density = "compact";
           position = "top";
