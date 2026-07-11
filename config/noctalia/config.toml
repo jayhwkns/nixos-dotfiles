@@ -169,6 +169,14 @@ font_family = "FreeSans"
     enabled = false
     speed = 2.0000000298023224
 
+    [shell.launcher]
+    categories = false
+    sort_by_usage = false
+
+    [shell.panel]
+    clipboard_placement = "attached"
+    transparency_mode = "glass"
+
     [shell.shadow]
     alpha = 0.39999999105930328
     direction = "center"
@@ -178,7 +186,7 @@ font_family = "FreeSans"
 [theme]
 builtin = "Rosé Pine"
 custom_palette = "Spacehawk"
-mode = "dark"
+mode = "auto"
 source = "custom"
 
 [wallpaper]
@@ -251,4 +259,5 @@ color = "#FFFFFF"
 [widget.workspaces]
 active_pill_size = 1.6000000000000001
 capsule_radius = "auto"
+max_label_chars = 8
 occupied_color = "surface"
