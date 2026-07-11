@@ -1,0 +1,254 @@
+[audio]
+enable_sounds = true
+
+[backdrop]
+enabled = true
+
+[bar]
+backgroundOpacity = 0
+contentPadding = 4
+density = "compact"
+position = "top"
+showCapsule = false
+useSeparateOpacity = true
+
+    [bar.widgets]
+    background_opacity = 0.0
+    center = [ "clock", "date" ]
+    concave_edge_corners = false
+    end = [
+        "tray",
+        "notifications",
+        "clipboard",
+        "network",
+        "bluetooth",
+        "volume",
+        "brightness",
+        "battery",
+        "sysmon",
+        "control-center",
+        "session"
+    ]
+    margin_ends = 0
+    padding = 6
+    radius = 0
+    start = [ "workspaces", "media", "audio_visualizer" ]
+    thickness = 22
+    widget_spacing = 10
+
+        [[bar.widgets.left]]
+        hideUnoccupied = false
+        iconScale = 1.0
+        id = "Workspace"
+        labelMode = "index"
+        showApplications = true
+
+        [[bar.widgets.left]]
+        id = "MediaMini"
+        maxWidth = 250
+        useFixedWith = true
+
+        [[bar.widgets.right]]
+        id = "Tray"
+
+        [[bar.widgets.right]]
+        id = "SystemMonitor"
+
+        [[bar.widgets.right]]
+        id = "NotificationHistory"
+        maximumWidth = "312"
+
+        [[bar.widgets.right]]
+        id = "Bluetooth"
+
+        [[bar.widgets.right]]
+        id = "Volume"
+
+        [[bar.widgets.right]]
+        id = "Network"
+
+        [[bar.widgets.right]]
+        alwaysShowPercentage = true
+        id = "Battery"
+        warningThreshold = 30
+
+        [[bar.widgets.right]]
+        enableColorization = true
+        id = "ControlCenter"
+        useDistroLogo = true
+
+[battery]
+warning_threshold = 25
+
+[colorSchemes]
+schedulingMode = "location"
+syncGsettings = true
+useWallpaperColors = false
+
+[config]
+
+[desktop_widgets]
+enabled = false
+schema_version = 2
+widget_order = []
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget]
+
+[dock]
+enabled = false
+
+[general]
+avatarImage = "/home/jay/.face"
+radiusRatio = 0
+
+[idle]
+customCommands = "[]"
+enabled = true
+fadeDuration = 1
+lockCommand = ""
+lockTimeout = 0
+resumeLockCommand = ""
+resumeScreenOffCommand = ""
+resumeSuspendCommand = ""
+screenOffCommand = ""
+screenOffTimeout = 600
+suspendCommand = ""
+suspendTimeout = 0
+
+[location]
+monthBeforeDay = true
+name = "Houghton, MI"
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 70.0
+    box_width = 400.0
+    cx = 752.0
+    cy = 884.0
+    output = "eDP-1"
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        input_opacity = 1.0
+        input_radius = 6.0
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_password_hint = true
+
+[nightLight]
+autoSchedule = true
+enabled = true
+
+[nightlight]
+enabled = true
+
+[shell]
+corner_radius_scale = 0.0
+font_family = "FreeSans"
+
+    [shell.animation]
+    enabled = false
+    speed = 2.0000000298023224
+
+    [shell.shadow]
+    alpha = 0.39999999105930328
+    direction = "center"
+
+[templates]
+
+[theme]
+builtin = "Rosé Pine"
+custom_palette = "Spacehawk"
+mode = "dark"
+source = "custom"
+
+[wallpaper]
+directory_dark = "/home/jay/Pictures/Wallpapers/dark"
+directory_light = "/home/jay/Pictures/Wallpapers/light"
+transition = [ "honeycomb" ]
+transitionType = [ "pixelate" ]
+
+    [wallpaper.default]
+    path = "/home/jay/Pictures/Wallpapers/window-to-the-world-desktop-image-only-1.png"
+
+    [wallpaper.last]
+    path = "/home/jay/Pictures/Wallpapers/window-to-the-world-desktop-image-only-1.png"
+
+    [wallpaper.monitors.eDP-1]
+    path = "/home/jay/Pictures/Wallpapers/window-to-the-world-desktop-image-only-1.png"
+
+[widget.audio_visualizer]
+mirrored = false
+
+[widget.battery]
+color = "#FFFFFF"
+
+[widget.bluetooth]
+color = "#FFFFFF"
+
+[widget.brightness]
+color = "#FFFFFF"
+show_label = false
+
+[widget.clipboard]
+color = "#FFFFFF"
+
+[widget.clock]
+color = "#FFFFFF"
+
+[widget.control-center]
+color = "#FFFFFF"
+glyph = "settings-2"
+
+[widget.date]
+color = "#FFFFFF"
+
+[widget.media]
+art_size = 30
+color = "#FFFFFF"
+hide_when_no_media = true
+
+[widget.network]
+color = "#FFFFFF"
+show_label = false
+
+[widget.notifications]
+color = "#FFFFFF"
+
+[widget.session]
+color = "#FFFFFF"
+
+[widget.sysmon]
+color = "#FFFFFF"
+show_label = false
+
+[widget.tray]
+color = "#FFFFFF"
+drawer = true
+
+[widget.volume]
+color = "#FFFFFF"
+
+[widget.workspaces]
+active_pill_size = 1.6000000000000001
+capsule_radius = "auto"
+occupied_color = "surface"

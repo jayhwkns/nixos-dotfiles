@@ -7,6 +7,7 @@ let
     alacritty = "alacritty";
     helix = "helix";
     zellij = "zellij";
+    noctalia = "noctalia";
   };
 in
 {
@@ -26,7 +27,6 @@ in
   imports = [
     # Syncthing for music
     ./syncthing.nix
-    ./anyrun.nix
     ./emulation.nix
   ];
 
@@ -109,7 +109,8 @@ in
     ripgrep
     nixpkgs-fmt
     nodejs
-    anyrun
+    # Trying out noctalia launcher instead.
+    # anyrun
     cava
     cliphist
     wl-clipboard
@@ -162,6 +163,7 @@ in
     tinymist
     kdePackages.elisa
     spotube
+    sone # TIDAL client
 
     font-awesome
     roboto

@@ -2,14 +2,14 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   imports = [ 
     ./steam.nix
     ./portal.nix
     ./stylix.nix
     # Desktop Shell
-    ./noctalia.nix
+    # ./noctalia.nix
     # graphics
     ./nvidia.nix
   ];
@@ -188,6 +188,8 @@
     imv
     ffmpeg
     android-tools
+
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
 
