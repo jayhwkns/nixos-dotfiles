@@ -85,6 +85,9 @@
       montserrat
       nerd-fonts.liberation
       nerd-fonts.victor-mono
+
+      # These are from NASA's graphic standards :D
+      inter
       public-sans
       dm-mono
     ];
