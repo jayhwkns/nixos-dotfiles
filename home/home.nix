@@ -66,7 +66,7 @@ in
   stylix.targets = {
     # noctalia-shell.enable = true;
     zellij.enable = true;
-    kde.enable = true;
+    # kde.enable = true;
     starship.enable = true;
     blender.enable = true;
   };
@@ -145,6 +145,7 @@ in
     kdePackages.kio-extras
     kdePackages.filelight
     kdePackages.kdenlive
+    kdePackages.plasma-workspace
 
     # for pause/play/skip
     playerctl
@@ -171,5 +172,6 @@ in
     source-sans
     typos
     anki
+    just
   ];
 }

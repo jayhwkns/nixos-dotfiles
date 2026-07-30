@@ -56,7 +56,7 @@
     targets = {
       fish.enable = true;
       gnome.enable = true;
-      qt.enable = true;
+      # qt.enable = true;
       console.enable = true;
     };
   };

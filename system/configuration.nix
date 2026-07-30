@@ -86,6 +86,7 @@
       nerd-fonts.liberation
       nerd-fonts.victor-mono
       public-sans
+      dm-mono
     ];
 
     fontconfig = {
