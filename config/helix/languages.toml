@@ -69,3 +69,9 @@ auto-format = true
 [[language]]
 name = "typst"
 language-servers = [ "tinymist" ]
+
+[[language]]
+name = "svelte"
+language-servers = [ "svelteserver" ]
+formatter = { command = 'prettier' }
+auto-format = true

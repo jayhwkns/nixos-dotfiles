@@ -133,6 +133,7 @@ in
     vscode-json-languageserver
     eslint
     vscode-css-languageserver
+    svelte-language-server
 
     zoom-us
     gamemode
