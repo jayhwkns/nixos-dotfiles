@@ -174,5 +174,6 @@ in
     typos
     anki
     just
+    godot
   ];
 }

@@ -75,3 +75,4 @@ name = "svelte"
 language-servers = [ "svelteserver" ]
 formatter = { command = 'prettier' }
 auto-format = true
+indent = { tab-width = 4, unit = " " }
