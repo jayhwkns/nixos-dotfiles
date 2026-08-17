@@ -175,5 +175,6 @@ in
     anki
     just
     godot
+    gh
   ];
 }
