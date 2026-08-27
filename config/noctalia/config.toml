@@ -36,54 +36,54 @@ useSeparateOpacity = true
     thickness = 22
     widget_spacing = 10
 
-        [[bar.widgets.left]]
-        hideUnoccupied = false
-        iconScale = 1.0
-        id = "Workspace"
-        labelMode = "index"
-        showApplications = true
+        # [[bar.widgets.left]]
+        # hideUnoccupied = false
+        # iconScale = 1.0
+        # id = "Workspace"
+        # labelMode = "index"
+        # showApplications = true
 
-        [[bar.widgets.left]]
-        id = "MediaMini"
-        maxWidth = 250
-        useFixedWith = true
+        # [[bar.widgets.left]]
+        # id = "MediaMini"
+        # maxWidth = 250
+        # useFixedWith = true
 
-        [[bar.widgets.right]]
-        id = "Tray"
+        # [[bar.widgets.right]]
+        # id = "Tray"
 
-        [[bar.widgets.right]]
-        id = "SystemMonitor"
+        # [[bar.widgets.right]]
+        # id = "SystemMonitor"
 
-        [[bar.widgets.right]]
-        id = "NotificationHistory"
-        maximumWidth = "312"
+        # [[bar.widgets.right]]
+        # id = "NotificationHistory"
+        # maximumWidth = "312"
 
-        [[bar.widgets.right]]
-        id = "Bluetooth"
+        # [[bar.widgets.right]]
+        # id = "Bluetooth"
 
-        [[bar.widgets.right]]
-        id = "Volume"
+        # [[bar.widgets.right]]
+        # id = "Volume"
 
-        [[bar.widgets.right]]
-        id = "Network"
+        # [[bar.widgets.right]]
+        # id = "Network"
 
-        [[bar.widgets.right]]
-        alwaysShowPercentage = true
-        id = "Battery"
-        warningThreshold = 30
+        # [[bar.widgets.right]]
+        # alwaysShowPercentage = true
+        # id = "Battery"
+        # warningThreshold = 30
 
-        [[bar.widgets.right]]
-        enableColorization = true
-        id = "ControlCenter"
-        useDistroLogo = true
+        # [[bar.widgets.right]]
+        # enableColorization = true
+        # id = "ControlCenter"
+        # useDistroLogo = true
 
 [battery]
 warning_threshold = 25
 
-[colorSchemes]
-schedulingMode = "location"
-syncGsettings = true
-useWallpaperColors = false
+# [colorSchemes]
+# schedulingMode = "location"
+# syncGsettings = true
+# useWallpaperColors = false
 
 [config]
 
@@ -102,27 +102,27 @@ widget_order = []
 [dock]
 enabled = false
 
-[general]
-avatarImage = "/home/jay/.face"
-radiusRatio = 0
+# [general]
+# avatarImage = "/home/jay/.face"
+# radiusRatio = 0
 
 [idle]
-customCommands = "[]"
-enabled = true
-fadeDuration = 1
-lockCommand = ""
-lockTimeout = 0
-resumeLockCommand = ""
-resumeScreenOffCommand = ""
-resumeSuspendCommand = ""
-screenOffCommand = ""
-screenOffTimeout = 600
-suspendCommand = ""
-suspendTimeout = 0
+# customCommands = "[]"
+# enabled = true
+# fadeDuration = 1
+# lockCommand = ""
+# lockTimeout = 0
+# resumeLockCommand = ""
+# resumeScreenOffCommand = ""
+# resumeSuspendCommand = ""
+# screenOffCommand = ""
+# screenOffTimeout = 600
+# suspendCommand = ""
+# suspendTimeout = 0
 
 [location]
-monthBeforeDay = true
-name = "Houghton, MI"
+# monthBeforeDay = true
+# name = "Houghton, MI"
 
 [lockscreen_widgets]
 enabled = false
@@ -152,13 +152,10 @@ widget_order = [ "lockscreen-login-box@eDP-1" ]
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = true
-        show_password_hint = true
-
-[nightLight]
-autoSchedule = true
-enabled = true
+        # show_password_hint = true
 
 [nightlight]
+# autoSchedule = true
 enabled = true
 
 [shell]
@@ -181,7 +178,7 @@ font_family = "FreeSans"
     alpha = 0.39999999105930328
     direction = "center"
 
-[templates]
+# [templates]
 
 [theme]
 builtin = "Rosé Pine"
@@ -193,7 +190,6 @@ source = "custom"
 directory_dark = "/home/jay/Pictures/Wallpapers/dark"
 directory_light = "/home/jay/Pictures/Wallpapers/light"
 transition = [ "honeycomb" ]
-transitionType = [ "pixelate" ]
 
     [wallpaper.default]
     path = "/home/jay/Pictures/Wallpapers/window-to-the-world-desktop-image-only-1.png"
@@ -247,7 +243,7 @@ color = "#FFFFFF"
 
 [widget.sysmon]
 color = "#FFFFFF"
-show_label = false
+show_value = false
 
 [widget.tray]
 color = "#FFFFFF"
