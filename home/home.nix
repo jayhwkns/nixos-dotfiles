@@ -26,7 +26,7 @@ in
 
   imports = [
     # Syncthing for music
-    ./syncthing.nix
+    # ./syncthing.nix
     ./emulation.nix
   ];
 

@@ -104,13 +104,13 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [
-    22000 # synchthing
-  ];
-  networking.firewall.allowedUDPPorts = [
-    22000 # synchthing
-    21027 # syncthing discovery
-  ];
+  # networking.firewall.allowedTCPPorts = [
+  #   22000 # synchthing
+  # ];
+  # networking.firewall.allowedUDPPorts = [
+  #   22000 # synchthing
+  #   21027 # syncthing discovery
+  # ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
