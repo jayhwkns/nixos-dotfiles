@@ -176,5 +176,6 @@ in
     just
     godot
     gh
+    imagemagick
   ];
 }
