@@ -63,6 +63,7 @@
       "docker"
       "adbusers"
       "networkmanager"
+      "dialout"
     ];
     packages = with pkgs; [
       tree
@@ -163,6 +164,11 @@
     lfs.enable = true;
   };
 
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
+
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
@@ -200,6 +206,7 @@
 
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     lld
+    fuse
   ];
 }
 

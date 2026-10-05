@@ -177,5 +177,12 @@ in
     godot
     gh
     imagemagick
+    exiftool
+
+    # Need for campus VPN
+    gof5
+
+    gnome-calculator
+    arduino-cli
   ];
 }
