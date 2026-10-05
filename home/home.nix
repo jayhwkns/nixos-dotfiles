@@ -184,5 +184,8 @@ in
 
     gnome-calculator
     arduino-cli
+
+    dolphin-emu
+    audacity
   ];
 }

@@ -133,6 +133,10 @@ output "DP-2" {
     mode "3840x2160@60.000"
 }
 
+output "HDMI-A-1" {
+    mode "2560x1440@239.999"
+}
+
 // Settings that influence how windows are positioned and sized.
 // Find more information on the wiki:
 // https://yalter.github.io/niri/Configuration:-Layout
