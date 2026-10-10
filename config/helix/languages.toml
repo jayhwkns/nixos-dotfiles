@@ -17,6 +17,15 @@ block-comment-tokens = { start = "/*", end = "*/" }
 language-servers = [ "clangd" ]
 indent = { tab-width = 4, unit = "  " }
 
+[[language]]
+name = "cpp"
+roots = ["CMakeLists.txt"]
+indent = { tab-width = 4, unit = "  " }
+file-types = ["cpp", "h", "ino"]
+comment-token = "//"
+language-servers = [ "clangd" ]
+block-comment-tokens = { start = "/*", end = "*/" }
+
 [language-server.clangd]
 command = "clangd"
 

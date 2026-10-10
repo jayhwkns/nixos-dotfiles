@@ -186,6 +186,7 @@
     rust-analyzer
     clippy
     rustfmt
+    rustup
     
     pkg-config
     xwayland-satellite
