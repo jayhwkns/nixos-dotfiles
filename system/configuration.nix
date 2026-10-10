@@ -181,12 +181,10 @@
     gcc
 
     # Rust
-    cargo
-    rustc
+    rustup
     rust-analyzer
     clippy
     rustfmt
-    rustup
     
     pkg-config
     xwayland-satellite

@@ -46,10 +46,6 @@ in
     };
   };
   
-  programs.cargo = {
-    enable = true;
-  };
-
   programs.fish = {
     enable = true;
     shellInit = /*bash*/ ''
