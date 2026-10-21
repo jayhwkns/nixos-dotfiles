@@ -6,7 +6,6 @@ language-servers = [ "rust-analyzer" ]
 [language-server.rust-analyzer]
 command = "rust-analyzer"
 config.check.command = "clippy"
-environment = { RUSTUP_TOOLCHAIN = "stable" }
 
 [[language]]
 name = "c"
@@ -16,12 +15,12 @@ file-types = ["c", "h"]
 comment-token = "//"
 block-comment-tokens = { start = "/*", end = "*/" }
 language-servers = [ "clangd" ]
-indent = { tab-width = 4, unit = "  " }
+indent = { tab-width = 4, unit = "    " }
 
 [[language]]
 name = "cpp"
 roots = ["CMakeLists.txt"]
-indent = { tab-width = 4, unit = "  " }
+indent = { tab-width = 4, unit = "    " }
 file-types = ["cpp", "h", "ino"]
 comment-token = "//"
 language-servers = [ "clangd" ]

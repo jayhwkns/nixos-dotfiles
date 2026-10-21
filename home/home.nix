@@ -179,6 +179,7 @@ in
     gof5
 
     gnome-calculator
+    gnome-characters
     arduino-cli
 
     dolphin-emu

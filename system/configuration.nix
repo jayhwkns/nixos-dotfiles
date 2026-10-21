@@ -181,8 +181,10 @@
     gcc
 
     # Rust
-    rustup
+    cargo
+    rustc
     rust-analyzer
+    # rustup
     clippy
     rustfmt
     
