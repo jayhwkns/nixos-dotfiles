@@ -1,4 +1,4 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, ... }:
 {
   # GRAPHICS CONFIG
   hardware.graphics = {
@@ -12,7 +12,7 @@
   };
   hardware.nvidia = {
     modesetting.enable = true;
-    package = config.boot.kernelPackages.nvidiaPackages.beta;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
     open = false;
     nvidiaSettings = true;
   };

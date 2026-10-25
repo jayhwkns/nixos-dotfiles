@@ -122,7 +122,6 @@ in
     # process viewer
     bottom
     bibata-cursors
-    steam
 
     typescript-language-server
     dprint
@@ -146,8 +145,6 @@ in
 
     # for pause/play/skip
     playerctl
-
-    protonup-rs
 
     # archives
     zip
