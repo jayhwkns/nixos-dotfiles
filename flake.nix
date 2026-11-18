@@ -73,7 +73,6 @@
           ./hosts/tacoma.nix
           # Hardware configuration
           ./hardware/laptop.nix
-          ./laptop.nix
           # Home Manager
           inputs.home-manager.nixosModules.home-manager
           {

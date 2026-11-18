@@ -157,8 +157,7 @@ in
     javaPackages.compiler.temurin-bin.jre-11
     tinymist
     kdePackages.elisa
-    spotube
-    sone # TIDAL client
+    spotify
 
     font-awesome
     roboto
